@@ -157,7 +157,7 @@ export default async function CarDetailPage({ params }) {
                   <Phone className="w-4 h-4" /> Call Agent
                 </button>
                 <a 
-                  href={`https://wa.me/1234567890?text=${encodeURIComponent(`Hello, I am interested in the ${car.brand} ${car.name}.`)}`}
+                  href={`https://wa.me/923282677366?text=${encodeURIComponent(`Hello, I am interested in the ${car.brand} ${car.name}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-3 rounded-xl flex items-center justify-center gap-3 font-bold transition-all shadow-lg shadow-[#25D366]/20"

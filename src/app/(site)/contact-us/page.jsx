@@ -59,7 +59,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-[#0f172a] text-xs font-medium">Phone</p>
-                    <p className="text-[#FAC104] text-sm font-medium">+971 12 345 6789</p>
+                    <p className="text-[#FAC104] text-sm font-medium">3282677366</p>
+                    <p className="text-[#FAC104] text-sm font-medium">walcarsit@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -114,7 +115,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+971 12 345 6789"
+                      placeholder="3282677366"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="w-full bg-[#c0c0c0] text-[#0f172a] px-3 py-2.5 rounded-lg text-xs outline-none border border-gray-400"
