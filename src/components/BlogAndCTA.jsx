@@ -109,7 +109,7 @@ export default function BlogAndCTA() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <a
-                href="https://wa.me/923282677366?text=Hello,%20I%20am%20interested%20in%20your%20cars."
+                href="https://wa.me/393282677366?text=Hello,%20I%20am%20interested%20in%20your%20cars."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-[#FAC104] text-[#0f172a] rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FBDB5C] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25"

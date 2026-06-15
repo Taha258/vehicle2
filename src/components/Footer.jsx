@@ -14,10 +14,10 @@ export default function Footer() {
     <footer className="bg-[#0f172a] pt-16 pb-8 px-4">
       <div className="max-w-6xl mx-auto">
         
-        {/* Top Section - Logo + Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-12">
+        {/* Top Section - Logo */}
+        <div className="mb-12">
           
-          {/* Left: Logo + Description */}
+          {/* Logo + Description */}
           <div>
             <Link href="/" className="flex items-center mb-6">
               <Image
@@ -31,24 +31,6 @@ export default function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed max-w-md" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Specializzati nell&apos;acquisto, vendita e trasporto di veicoli usati. Valutiamo auto, furgoni e camper in qualsiasi condizione. Servizio rapido, trasparente e professionale in tutta Italia.
             </p>
-          </div>
-
-          {/* Right: Newsletter */}
-          <div className="lg:text-right">
-            <h3 className="text-white text-sm font-bold uppercase tracking-wider mb-4" style={{ fontFamily: 'Syne, sans-serif' }}>
-              UNISCITI ALLA NOSTRA COMMUNITY!
-            </h3>
-            <div className="flex items-center bg-white rounded-lg overflow-hidden max-w-md lg:ml-auto">
-              <input
-                type="email"
-                placeholder="Indirizzo Email"
-                className="flex-1 px-4 py-3 text-sm text-gray-700 outline-none"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-              />
-              <button className="bg-[#FAC104] text-[#0f172a] text-sm font-bold px-6 py-3 hover:bg-[#D4A203] transition-colors uppercase tracking-wider">
-                INVIA
-              </button>
-            </div>
           </div>
         </div>
 
@@ -102,9 +84,15 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li className="flex flex-col gap-1">
                   <span className="text-[#FAC104] text-[10px] font-bold uppercase tracking-widest">WhatsApp</span>
-                  <span className="text-gray-400 text-sm font-medium" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                    3282677366
-                  </span>
+                  <a 
+                    href="https://wa.me/393282677366" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-400 text-sm font-medium hover:text-[#FAC104] transition-colors" 
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                  >
+                    +39 328 267 7366
+                  </a>
                 </li>
                 <li className="flex flex-col gap-1">
                   <span className="text-[#FAC104] text-[10px] font-bold uppercase tracking-widest">Email</span>

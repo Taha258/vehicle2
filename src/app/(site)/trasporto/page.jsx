@@ -1,8 +1,9 @@
 // src/app/trasporto/page.jsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { Send, CloudUpload, X, Car, User, Camera, MessageSquare, MapPin, Truck } from 'lucide-react';
 
 export default function TrasportoPage() {
   const [formData, setFormData] = useState({
@@ -21,15 +22,143 @@ export default function TrasportoPage() {
     notes: '',
   });
 
+  const [files, setFiles] = useState([]);
+  const [previews, setPreviews] = useState([]);
+  const [base64Photos, setBase64Photos] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const fileInputRef = useRef(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // ✅ File ko Base64 mein convert karein
+  const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleFileSelect = async (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    
+    if (files.length + selectedFiles.length > 8) {
+      alert('Puoi caricare fino a 8 immagini.');
+      return;
+    }
+
+    for (const file of selectedFiles) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`${file.name} supera il limite di 5MB.`);
+        continue;
+      }
+
+      const base64 = await fileToBase64(file);
+      
+      setBase64Photos(prev => [...prev, base64]);
+      setPreviews(prev => [...prev, base64]);
+      setFiles(prev => [...prev, file]);
+    }
+  };
+
+  const removeFile = (index) => {
+    setFiles(prev => prev.filter((_, i) => i !== index));
+    setPreviews(prev => prev.filter((_, i) => i !== index));
+    setBase64Photos(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const handleDragOver = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+    e.stopPropagation();
+  };
+
+  const handleDrop = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    
+    for (const file of droppedFiles) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`${file.name} supera il limite di 5MB.`);
+        continue;
+      }
+      
+      const base64 = await fileToBase64(file);
+      setBase64Photos(prev => [...prev, base64]);
+      setPreviews(prev => [...prev, base64]);
+      setFiles(prev => [...prev, file]);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      const data = {
+        fullName: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        vehicleType: formData.vehicleType,
+        vehicleCondition: formData.vehicleCondition,
+        pickupLocation: `${formData.pickupCity}, ${formData.pickupProvince} ${formData.pickupPostal}`,
+        deliveryLocation: `${formData.deliveryCity}, ${formData.deliveryProvince} ${formData.deliveryPostal}`,
+        pickupCity: formData.pickupCity,
+        pickupProvince: formData.pickupProvince,
+        pickupPostal: formData.pickupPostal,
+        deliveryCity: formData.deliveryCity,
+        deliveryProvince: formData.deliveryProvince,
+        deliveryPostal: formData.deliveryPostal,
+        preferredDate: formData.preferredDate,
+        notes: formData.notes,
+        vehicle_photos: base64Photos,
+      };
+
+      const response = await fetch('/api/send-transport-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('✅ Richiesta di trasporto inviata con successo! Ti contatteremo presto.');
+        // Reset form
+        setFormData({
+          fullName: '',
+          phone: '',
+          email: '',
+          vehicleType: '',
+          vehicleCondition: '',
+          pickupCity: '',
+          pickupProvince: '',
+          pickupPostal: '',
+          deliveryCity: '',
+          deliveryProvince: '',
+          deliveryPostal: '',
+          preferredDate: '',
+          notes: '',
+        });
+        setFiles([]);
+        setPreviews([]);
+        setBase64Photos([]);
+      } else {
+        alert('❌ Errore nell\'invio. Riprova più tardi.');
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      alert('❌ Errore nell\'invio. Riprova più tardi.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -75,10 +204,11 @@ export default function TrasportoPage() {
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Information */}
               <div className="space-y-4">
-                <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2">
+                <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2 flex items-center gap-2">
+                  <User className="w-4 h-4" />
                   Personal Information
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
                       Full Name <span className="text-red-500">*</span>
@@ -107,25 +237,26 @@ export default function TrasportoPage() {
                       placeholder="+39 123 456 7890"
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                    placeholder="your@email.com"
-                  />
+                  <div>
+                    <label className="block text-gray-300 text-sm font-medium mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Vehicle Information */}
               <div className="space-y-4">
-                <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2">
+                <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2 flex items-center gap-2">
+                  <Truck className="w-4 h-4" />
                   Vehicle Information
                 </h3>
                 <div>
@@ -188,7 +319,8 @@ export default function TrasportoPage() {
 
               {/* Transport Details */}
               <div className="space-y-4">
-                <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2">
+                <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2 flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
                   Transport Details
                 </h3>
                 
@@ -280,7 +412,8 @@ export default function TrasportoPage() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                  <label className="block text-gray-300 text-sm font-medium mb-2 flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4" />
                     Additional Notes
                   </label>
                   <p className="text-gray-500 text-xs mb-2">(Access restrictions, urgency, special requirements, etc.)</p>
@@ -294,22 +427,60 @@ export default function TrasportoPage() {
                   />
                 </div>
 
+                {/* Photo Upload - Fixed with previews */}
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                  <label className="block text-gray-300 text-sm font-medium mb-3 flex items-center gap-2">
+                    <Camera className="w-4 h-4" />
                     Upload Photos of the Vehicle <span className="text-gray-500">(optional)</span>
                   </label>
-                  <div className="relative">
+                  <div 
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
+                    onClick={() => fileInputRef.current?.click()}
+                    className="relative border-2 border-dashed border-white/20 rounded-xl hover:border-[#FAC104]/50 transition-colors bg-white/5 cursor-pointer"
+                  >
                     <input
+                      ref={fileInputRef}
                       type="file"
                       accept="image/*"
                       multiple
-                      className="w-full bg-white/10 border border-white/20 border-dashed rounded-xl px-4 py-8 text-gray-400 focus:outline-none focus:border-[#FAC104] transition-colors file:hidden cursor-pointer text-center"
-                      onChange={(e) => console.log('Files:', e.target.files)}
+                      onChange={handleFileSelect}
+                      className="hidden"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span className="text-gray-500 text-sm">Click to upload or drag and drop images here</span>
+                    <div className="flex flex-col items-center justify-center py-10 px-4">
+                      <CloudUpload className="w-10 h-10 text-gray-500 mb-3" />
+                      <p className="text-gray-400 text-sm font-medium">Click to upload or drag and drop</p>
+                      <p className="text-gray-600 text-xs mt-1">Max 8 photos, 5MB each</p>
+                      {files.length > 0 && (
+                        <p className="text-[#FAC104] text-xs mt-2 font-medium">{files.length} file(s) selected</p>
+                      )}
                     </div>
                   </div>
+
+                  {/* Previews */}
+                  {previews.length > 0 && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+                      {previews.map((preview, index) => (
+                        <div key={index} className="relative group">
+                          <img 
+                            src={preview} 
+                            alt={`Preview ${index + 1}`}
+                            className="w-full h-28 object-cover rounded-lg border border-white/20"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeFile(index)}
+                            className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                          <span className="absolute bottom-1 left-1 bg-black/50 text-white text-xs px-2 py-0.5 rounded">
+                            {index + 1}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -317,9 +488,21 @@ export default function TrasportoPage() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-[#FAC104] text-[#0f172a] py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FBDB5C] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-[#FAC104]/25"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#FAC104] text-[#0f172a] py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FBDB5C] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden group"
                 >
-                  Request a Quote
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-[#0f172a] border-t-transparent rounded-full animate-spin relative z-10" />
+                      <span className="relative z-10">Invio in corso...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 relative z-10" />
+                      <span className="relative z-10">Request a Quote</span>
+                    </>
+                  )}
                 </button>
               </div>
             </form>
