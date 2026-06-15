@@ -26,7 +26,7 @@ function Dropdown({ label, options, value, onChange, icon: Icon }) {
     <div className="relative flex-1" ref={ref}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between bg-white/95 backdrop-blur-sm text-gray-700 px-5 py-3.5 rounded-xl text-sm font-medium hover:bg-white transition-all duration-300 border border-transparent hover:border-[#FAC104]/30 shadow-sm"
+        className="w-full flex items-center justify-between bg-white/95 backdrop-blur-sm text-gray-700 px-4 py-3 rounded-xl text-sm font-medium hover:bg-white transition-all duration-300 border border-transparent hover:border-[#FAC104]/30 shadow-sm"
       >
         <div className="flex items-center gap-2">
           {Icon && <Icon className="w-4 h-4 text-[#FAC104]" />}
@@ -41,7 +41,7 @@ function Dropdown({ label, options, value, onChange, icon: Icon }) {
         <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
           <button
             onClick={() => { onChange(''); setOpen(false); }}
-            className="w-full text-left px-5 py-3 text-sm text-gray-400 hover:bg-gray-50 border-b border-gray-50 transition-colors"
+            className="w-full text-left px-4 py-2.5 text-sm text-gray-400 hover:bg-gray-50 border-b border-gray-50 transition-colors"
           >
             All {label}s
           </button>
@@ -50,7 +50,7 @@ function Dropdown({ label, options, value, onChange, icon: Icon }) {
               <button
                 key={opt}
                 onClick={() => { onChange(opt); setOpen(false); }}
-                className={`w-full text-left px-5 py-3 text-sm transition-all duration-200
+                className={`w-full text-left px-4 py-2.5 text-sm transition-all duration-200
                   ${value === opt
                     ? 'bg-[#FAC104]/10 text-[#FAC104] font-bold border-l-4 border-[#FAC104]'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-[#0f172a]'}`}
@@ -92,31 +92,31 @@ function HeroContent() {
   };
 
   return (
-    <section className="relative w-full h-[850px] md:h-[950px] z-30 overflow-hidden">
+    <section className="relative w-full min-h-[600px] md:min-h-[680px] z-30 overflow-hidden flex items-center">
       {/* Background Image - Full Cover */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{ backgroundImage: "url('/images/HeroSectionimage.jpg')" }}
       />
       
-      {/* Dark Overlay - Puri Image Cover */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/55" />
       
-      {/* Bottom Gradient - Seamless transition to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-[#0f172a] to-transparent" />
+      {/* Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-gradient-to-t from-[#0f172a] to-transparent" />
 
-      {/* Content - pb-24 added to shift content up from bottom */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 pt-20 pb-24">
-        <div className="max-w-5xl w-full text-center space-y-6">
+      {/* Content */}
+      <div className="relative z-10 w-full px-4 py-16 md:py-20">
+        <div className="max-w-5xl mx-auto text-center space-y-5">
           
           {/* ========== MAIN HEADING ========== */}
           <h1
             className="uppercase tracking-tight"
             style={{
               fontFamily: "Syne, sans-serif",
-              fontSize: "clamp(28px, 5vw, 55px)",
+              fontSize: "clamp(26px, 4.5vw, 48px)",
               fontWeight: 651,
-              lineHeight: "1.2",
+              lineHeight: "1.15",
               color: "#fff",
             }}
           >
@@ -128,18 +128,18 @@ function HeroContent() {
           </h1>
 
           {/* ========== SUB HEADING ========== */}
-          <p className="text-lg md:text-xl text-white/80 font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-white/80 font-light max-w-2xl mx-auto leading-relaxed">
             Soluzioni rapide, sicure e professionali per l&apos;acquisto, 
             la vendita e il trasporto della tua auto.
           </p>
 
           {/* ========== CTA BUTTONS ========== */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
             
             {/* Button 1: Vendi la tua auto */}
             <Link
               href="/sell-your-car"
-              className="group relative px-8 py-4 bg-[#FAC104] text-[#0f172a] rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FBDB5C] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center gap-3 overflow-hidden"
+              className="group relative px-6 py-3.5 bg-[#FAC104] text-[#0f172a] rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FBDB5C] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center gap-2 overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="relative z-10">VENDI LA TUA AUTO</span>
@@ -149,7 +149,7 @@ function HeroContent() {
             {/* Button 2: Scopri le auto disponibili */}
             <button
               onClick={scrollToCars}
-              className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-white/20 hover:border-[#FAC104] active:scale-95 transition-all duration-300 flex items-center gap-3"
+              className="group px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-white/20 hover:border-[#FAC104] active:scale-95 transition-all duration-300 flex items-center gap-2"
             >
               SCOPRI LE AUTO DISPONIBILI
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -158,17 +158,17 @@ function HeroContent() {
             {/* Button 3: Richiedi un trasporto */}
             <Link
               href="/trasporto"
-              className="group px-8 py-4 bg-transparent text-white border-2 border-[#FAC104] rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FAC104] hover:text-[#0f172a] active:scale-95 transition-all duration-300 flex items-center gap-3"
+              className="group px-6 py-3.5 bg-transparent text-white border-2 border-[#FAC104] rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FAC104] hover:text-[#0f172a] active:scale-95 transition-all duration-300 flex items-center gap-2"
             >
               RICHIEDI UN TRASPORTO
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* ========== FILTER BOX - VIP Design ========== */}
-          <div className="mt-12 w-full bg-white/5 backdrop-blur-xl rounded-[2rem] p-4 md:p-8 border border-white/10 shadow-2xl">
-            <div className="flex flex-col lg:flex-row gap-4">
-              <div className="flex flex-col md:flex-row gap-4 flex-[2]">
+          {/* ========== FILTER BOX ========== */}
+          <div className="mt-8 w-full bg-white/5 backdrop-blur-xl rounded-2xl p-3 md:p-5 border border-white/10 shadow-2xl">
+            <div className="flex flex-col lg:flex-row gap-3">
+              <div className="flex flex-col md:flex-row gap-3 flex-[2]">
                 <Dropdown
                   label="Car Make"
                   options={CAR_MAKES}
@@ -202,12 +202,12 @@ function HeroContent() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                    className="w-full bg-white/95 backdrop-blur-sm text-[#0f172a] pl-11 pr-4 py-3.5 rounded-xl text-sm placeholder-gray-400 outline-none border border-transparent focus:border-[#FAC104]/50 shadow-sm transition-all"
+                    className="w-full bg-white/95 backdrop-blur-sm text-[#0f172a] pl-11 pr-4 py-3 rounded-xl text-sm placeholder-gray-400 outline-none border border-transparent focus:border-[#FAC104]/50 shadow-sm transition-all"
                   />
                 </div>
                 <button
                   onClick={handleSearch}
-                  className="bg-[#FAC104] text-white px-8 py-3.5 rounded-xl text-sm font-bold hover:bg-[#D4A203] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center justify-center gap-2 uppercase tracking-wider"
+                  className="bg-[#FAC104] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#D4A203] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center justify-center gap-2 uppercase tracking-wider whitespace-nowrap"
                 >
                   <Search className="w-4 h-4" />
                   <span className="hidden sm:inline">Search</span>
@@ -223,7 +223,7 @@ function HeroContent() {
 
 export default function HeroSection() {
   return (
-    <Suspense fallback={<div className="h-[850px] bg-[#0f172a]" />}>
+    <Suspense fallback={<div className="h-[600px] bg-[#0f172a]" />}>
       <HeroContent />
     </Suspense>
   );
