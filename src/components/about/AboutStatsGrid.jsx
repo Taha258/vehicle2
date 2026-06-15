@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function AboutStatsGrid() {
   const stats = [
     { label: 'Anni di Esperienza', value: '10+', type: 'dark' },
-    { image: '/images/dubai-building.jpg', type: 'image' },
+    { image: '/images/italy-build.jpg', type: 'image' },
     { label: 'Auto Vendute', value: '500+', type: 'green' },
     { label: 'Auto Acquistate', value: '300+', type: 'green' },
     { image: '/images/Red-car.jpg', type: 'image' },

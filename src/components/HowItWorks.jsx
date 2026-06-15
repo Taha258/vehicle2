@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    icon: '💰',
+    icon: '/images/purchase-car.png',
     number: '01',
     title: 'COMPRIAMO LA TUA AUTO',
     description:
@@ -13,7 +13,7 @@ const services = [
     href: '/sell-your-car',
   },
   {
-    icon: '🚗',
+    icon: '/images/service-car-red-removebg-preview.png',
     number: '02',
     title: 'VENDITA AUTO',
     description:
@@ -22,7 +22,7 @@ const services = [
     href: '/showroom',
   },
   {
-    icon: '🚚',
+    icon: '/images/transport-car.png',
     number: '03',
     title: 'TRASPORTO VEICOLI',
     description:
@@ -59,14 +59,20 @@ export default function Services() {
               className="group relative bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:border-[#FAC104]/30 transition-all duration-500 hover:shadow-xl overflow-hidden"
             >
               {/* Background Number */}
-              <div className="absolute top-5 right-5 text-[#0f172a]/5 text-4xl font-black italic select-none"
-                style={{ fontFamily: 'Syne, sans-serif' }}>
+              <div
+                className="absolute top-5 right-5 text-[#0f172a]/5 text-4xl font-black italic select-none"
+                style={{ fontFamily: 'Syne, sans-serif' }}
+              >
                 {service.number}
               </div>
 
-              {/* Icon */}
-              <div className="w-12 h-12 bg-[#f8f9fa] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FAC104]/10 transition-colors text-2xl">
-                {service.icon}
+              {/* Icon Image - BIGGER */}
+              <div className="w-28 h-28 bg-[#f8f9fa] rounded-2xl flex items-center justify-center mb-5 group-hover:bg-[#FAC104]/10 transition-colors">
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
 
               {/* Title */}

@@ -4,19 +4,11 @@ import { MapPin, Navigation } from 'lucide-react';
 const showrooms = [
   {
     id: 1,
-    name: 'Dubai Showroom',
-    city: 'Dubai, UAE',
-    address: '123 Sheikh Zayed Road, Al Quoz Industrial Area 3, Near Mall of the Emirates',
-    image: '/images/yellow-car.jpg',
-    mapLink: 'https://www.google.com/maps/search/123+Sheikh+Zayed+Road,+Al+Quoz+Industrial+Area+3,+Near+Mall+of+the+Emirates,+Dubai,+UAE',
-  },
-  {
-    id: 2,
-    name: 'Abu Dhabi Showroom',
-    city: 'Abu Dhabi, UAE',
-    address: 'Yas Marina Circuit Area, Yas Island, Abu Dhabi, UAE',
-    image: '/images/Black-car.jpg',
-    mapLink: 'https://www.google.com/maps/search/Yas+Marina+Circuit+Area,+Yas+Island,+Abu+Dhahbi,+UAE',
+    name: 'Sede Principale',
+    city: 'Ravenna, Italia',
+    address: 'Provincia di Ravenna, Italia',
+    image: '/images/italy-build.jpg',
+    mapLink: 'https://www.google.com/maps/search/Provincia+di+Ravenna+Italy',
   },
 ];
 
@@ -48,61 +40,63 @@ export default function Showrooms() {
           </p>
         </div>
 
-        {/* Showrooms Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {showrooms.map((showroom) => (
-            <div
-              key={showroom.id}
-              className="group relative bg-[#0f172a] rounded-xl overflow-hidden shadow-2xl transition-all duration-700 hover:-translate-y-2"
-            >
-              {/* Image Container */}
-              <div className="relative h-[300px] w-full overflow-hidden">
-                <Image
-                  src={showroom.image}
-                  alt={showroom.name}
-                  fill
-                  className="object-cover transform group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-90" />
-                
-                {/* City Badge */}
-                <div className="absolute top-6 left-6">
-                  <span className="bg-[#FAC104] text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-[0.2em] shadow-lg shadow-[#FAC104]/20">
-                    {showroom.city}
-                  </span>
-                </div>
-              </div>
-
-              {/* Info Section */}
-              <div className="p-6 md:p-8 space-y-4">
-                <div className="space-y-2">
-                  <h3
-                    className="text-white text-xl font-bold uppercase tracking-tight"
-                    style={{ fontFamily: 'Syne, sans-serif' }}
-                  >
-                    {showroom.name}
-                  </h3>
-                  <div className="flex items-start gap-3 text-gray-400">
-                    <MapPin className="w-4 h-4 text-[#FAC104] shrink-0 mt-1" />
-                    <p className="text-sm font-medium leading-relaxed" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      {showroom.address}
-                    </p>
+        {/* Showrooms Grid - Centered for single item */}
+        <div className="flex justify-center">
+          <div className="w-full max-w-2xl">
+            {showrooms.map((showroom) => (
+              <div
+                key={showroom.id}
+                className="group relative bg-[#0f172a] rounded-xl overflow-hidden shadow-2xl transition-all duration-700 hover:-translate-y-2"
+              >
+                {/* Image Container */}
+                <div className="relative h-[300px] w-full overflow-hidden">
+                  <Image
+                    src={showroom.image}
+                    alt={showroom.name}
+                    fill
+                    className="object-cover transform group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-90" />
+                  
+                  {/* City Badge */}
+                  <div className="absolute top-6 left-6">
+                    <span className="bg-[#FAC104] text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-[0.2em] shadow-lg shadow-[#FAC104]/20">
+                      {showroom.city}
+                    </span>
                   </div>
                 </div>
 
-                <a
-                  href={showroom.mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-[#FAC104] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#D4A203] transition-all duration-300 shadow-lg active:scale-95"
-                >
-                  <Navigation className="w-4 h-4" />
-                  GET DIRECTIONS
-                </a>
+                {/* Info Section */}
+                <div className="p-6 md:p-8 space-y-4">
+                  <div className="space-y-2">
+                    <h3
+                      className="text-white text-xl font-bold uppercase tracking-tight"
+                      style={{ fontFamily: 'Syne, sans-serif' }}
+                    >
+                      {showroom.name}
+                    </h3>
+                    <div className="flex items-start gap-3 text-gray-400">
+                      <MapPin className="w-4 h-4 text-[#FAC104] shrink-0 mt-1" />
+                      <p className="text-sm font-medium leading-relaxed" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                        {showroom.address}
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href={showroom.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-[#FAC104] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#D4A203] transition-all duration-300 shadow-lg active:scale-95"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    COME ARRIVARE
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

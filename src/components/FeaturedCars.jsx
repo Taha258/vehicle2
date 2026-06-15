@@ -104,25 +104,23 @@ export default async function FeaturedCars({ searchParams }) {
       <div className="max-w-6xl mx-auto">
 
         {/* ========== SECTION HEADER ========== */}
-        <div className="mb-8">
-          {/* Small Label */}
-          <p
-            className="text-[#FAC104] text-xs font-bold uppercase tracking-[0.2em] mb-3"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-          >
-            FEATURED CARS
-          </p>
+        <div className="mb-12">
+          {/* Small Label with Dash */}
+          <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em] mb-4">
+            <div className="w-8 h-px bg-[#FAC104]" />
+            AUTO IN EVIDENZA
+          </div>
           
-          {/* Main Heading */}
+          {/* Main Heading with Gradient */}
           <h2 
             className="text-[#0f172a] text-2xl md:text-3xl font-bold uppercase tracking-wide mb-3"
             style={{ fontFamily: 'Syne, sans-serif' }}
           >
-            AUTO IN EVIDENZA
+            SCOPRI LA NOSTRA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">COLLEZIONE</span>
           </h2>
           
           {/* Sub Text */}
-          <p className="text-gray-600 text-sm md:text-base max-w-2xl">
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
             Scopri una selezione delle nostre migliori occasioni disponibili.
           </p>
         </div>

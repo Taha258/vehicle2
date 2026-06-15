@@ -8,7 +8,7 @@ export default function TrasportoPage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
-            backgroundImage: "url('/images/gallary-car2.jpg')",
+            backgroundImage: "url('/images/transport-car1.png')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-[#0f172a]" />
