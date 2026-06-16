@@ -118,7 +118,7 @@ export default async function FeaturedCars({ searchParams }) {
             className="text-[#0f172a] text-2xl md:text-3xl font-bold uppercase tracking-wide mb-3"
             style={{ fontFamily: 'Syne, sans-serif' }}
           >
-            SCOPRI LA NOSTRA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">COLLEZIONE</span>
+            AUTO IN EVIDENZA
           </h2>
           
           {/* Sub Text */}

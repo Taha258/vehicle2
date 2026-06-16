@@ -110,7 +110,7 @@ export async function POST(request) {
 
     const emailOptions = {
       from: 'WalCars <onboarding@resend.dev>',
-      to: ['tahahussain427@gmail.com'],  // ✅ TESTING EMAIL
+      to: ['khalidghani.333@gmail.com'],  // ✅ UPDATED FOR TESTING
       subject: `🚗 Nuova Richiesta - ${make} ${model} (${year}) - €${Number(price).toLocaleString('it-IT')}`,
       html: emailContent,
       reply_to: email,

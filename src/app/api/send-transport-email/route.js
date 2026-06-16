@@ -92,7 +92,7 @@ export async function POST(request) {
 
     const emailOptions = {
       from: 'WalCars <onboarding@resend.dev>',
-      to: ['walcarsit@gmail.com'],
+      to: ['khalidghani.333@gmail.com'],
       subject: `🚛 Nuova Richiesta Trasporto - ${vehicleType} (${vehicleCondition})`,
       html: emailContent,
       reply_to: email,
