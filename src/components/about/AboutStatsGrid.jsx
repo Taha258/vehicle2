@@ -6,7 +6,7 @@ export default function AboutStatsGrid() {
     { image: '/images/italy-build.jpg', type: 'image' },
     { label: 'Auto Vendute', value: '500+', type: 'green' },
     { label: 'Auto Acquistate', value: '300+', type: 'green' },
-    { image: '/images/Red-car.jpg', type: 'image' },
+    { image: '/images/italian-numberplate.png', type: 'image' },
     { label: 'Trasporti Completati', value: '200+', type: 'dark' },
   ];
 

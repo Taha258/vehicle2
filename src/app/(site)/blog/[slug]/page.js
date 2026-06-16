@@ -18,12 +18,12 @@ export async function generateMetadata({ params }) {
   
   if (!post) {
     return {
-      title: 'Post Not Found - MotorDeal',
+      title: 'Post Non Trovato - WalCars',
     };
   }
 
   return {
-    title: `${post.title} - MotorDeal Blog`,
+    title: `${post.title} - Blog WalCars`,
     description: post.content.intro.replace(/<[^>]*>/g, '').slice(0, 160),
   };
 }
@@ -171,7 +171,7 @@ export default function BlogDetailPage({ params }) {
               <h3 
                 className="text-[#0f172a] text-sm font-bold uppercase tracking-wider mb-4"
                 style={{ fontFamily: 'Syne, sans-serif' }}>
-                RELATED POSTS
+                ARTICOLI CORRELATI
               </h3>
               <div className="space-y-4">
                 {relatedPosts.map((rp) => (
@@ -195,7 +195,7 @@ export default function BlogDetailPage({ params }) {
               <h3 
                 className="text-[#0f172a] text-sm font-bold uppercase tracking-wider mb-4"
                 style={{ fontFamily: 'Syne, sans-serif' }}>
-                CATEGORIES
+                CATEGORIE
               </h3>
               <div className="flex flex-wrap gap-2">
                 {categories.map((cat) => (
@@ -219,13 +219,13 @@ export default function BlogDetailPage({ params }) {
             <h2 
               className="text-[#0f172a] text-2xl font-bold uppercase tracking-wide"
               style={{ fontFamily: 'Syne, sans-serif' }}>
-              MORE BLOG POSTS
+              ALTRI ARTICOLI DEL BLOG
             </h2>
             <Link
               href="/blog"
               className="bg-[#0f172a] text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-[#1e293b] transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              SHOW ALL
+              VEDI TUTTI
             </Link>
           </div>
 
@@ -259,7 +259,7 @@ export default function BlogDetailPage({ params }) {
                   {rp.title}
                 </h3>
                 <span className="inline-flex items-center gap-1 text-[#FAC104] text-sm font-medium group-hover:underline">
-                  READ POST <ArrowUpRight className="w-4 h-4" />
+                  LEGGI POST <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>
             ))}

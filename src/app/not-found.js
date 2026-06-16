@@ -42,7 +42,7 @@ export default function NotFound() {
           marginBottom: '12px',
         }}
       >
-        Page Not Found
+        Pagina Non Trovata
       </h2>
 
       {/* Subtitle */}
@@ -54,7 +54,7 @@ export default function NotFound() {
           lineHeight: '1.6',
         }}
       >
-        The page you are looking for doesn&apos;t exist or has been moved
+        La pagina che stai cercando non esiste o è stata spostata.
       </p>
 
       {/* Button */}
@@ -74,7 +74,7 @@ export default function NotFound() {
           transition: 'background-color 0.2s',
         }}
       >
-        Back to Home
+        Torna alla Home
       </Link>
     </div>
   );

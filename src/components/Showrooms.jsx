@@ -22,7 +22,7 @@ export default function Showrooms() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
               <div className="w-8 h-px bg-[#FAC104]" />
-              Visit Us
+              Vieni a Trovarci
             </div>
             <h2
               className="text-[#0f172a] text-2xl md:text-3xl font-bold uppercase tracking-wide leading-tight"

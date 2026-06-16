@@ -3,22 +3,22 @@ import Image from 'next/image';
 const team = [
   {
     name: 'Ryan Thompson',
-    role: 'Founder & Managing Director',
+    role: 'Fondatore e Direttore Generale',
     image: '/images/men.jpg',
   },
   {
     name: 'Ethan Caldwell',
-    role: 'Global Sales Director',
+    role: 'Direttore Vendite Globali',
     image: '/images/Ethan Caldwell.jpg',
   },
   {
     name: 'Sofia Anderson',
-    role: 'Head of Finance',
+    role: 'Responsabile Amministrativa',
     image: '/images/Sofia Anderson.jpg',
   },
   {
     name: 'Marcus Fields',
-    role: 'Senior Client Relations',
+    role: 'Relazioni con i Clienti',
     image: '/images/Marcus Fields.jpg',
   },
 ];
@@ -26,28 +26,28 @@ const team = [
 export default function AboutTeam() {
   return (
     <section className="py-32 px-4 bg-white">
-      <div className="bg-red-600 max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
               <div className="w-8 h-px bg-[#FAC104]" />
-              Experts
+              Esperti
             </div>
             <h2
               className="text-[#0f172a] text-4xl md:text-5xl font-extrabold uppercase tracking-tight leading-tight"
               style={{ fontFamily: 'Syne, sans-serif' }}
             >
-              MEET THE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">SPECIALISTS</span>
+              INCONTRA I NOSTRI <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">SPECIALISTI</span>
             </h2>
           </div>
           <p
             className="text-gray-500 text-lg font-medium leading-relaxed max-w-md"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            A diverse group of passionate automotive experts dedicated to finding your perfect vehicle.
+            Un gruppo di esperti appassionati di automobilismo dedicato a trovare il tuo veicolo perfetto.
           </p>
         </div>
 

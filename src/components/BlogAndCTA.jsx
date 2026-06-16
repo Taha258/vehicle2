@@ -15,17 +15,17 @@ export default function BlogAndCTA() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
               <div className="w-8 h-px bg-[#FAC104]" />
-              Latest Updates
+              Ultimi Aggiornamenti
             </div>
             <h2 className="text-[#0f172a] text-2xl md:text-3xl font-bold uppercase tracking-wide" style={{ fontFamily: 'Syne, sans-serif' }}>
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">Insights</span>
+              Le Nostre <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">News</span>
             </h2>
           </div>
           <Link
             href="/blog"
             className="group flex items-center gap-3 text-[#0f172a] font-bold text-sm uppercase tracking-widest hover:text-[#FAC104] transition-colors"
           >
-            Show All Articles
+            Vedi tutti gli articoli
             <div className="w-10 h-10 rounded-full border border-[#0f172a]/20 flex items-center justify-center group-hover:border-[#FAC104] group-hover:bg-[#FAC104]/10 transition-all">
               <ArrowUpRight className="w-4 h-4" />
             </div>
@@ -77,7 +77,7 @@ export default function BlogAndCTA() {
 
               {/* Read Post */}
               <div className="flex items-center gap-2 text-[#FAC104] text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform">
-                Read Article
+                Leggi Articolo
                 <ArrowUpRight className="w-4 h-4" />
               </div>
             </Link>

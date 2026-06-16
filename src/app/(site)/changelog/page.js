@@ -1,12 +1,12 @@
 export default function ChangelogPage() {
   const versions = [
     {
-      version: 'Version 1.1',
-      changes: ['Fixed Dropdown Issue'],
+      version: 'Versione 1.1',
+      changes: ['Risolto il problema con il menu a tendina'],
     },
     {
-      version: 'Version 1.0',
-      changes: ['Initial Release of the MotorDeal Webflow Template'],
+      version: 'Versione 1.0',
+      changes: ['Rilascio iniziale del template WalCars'],
     },
   ];
 
@@ -44,7 +44,7 @@ export default function ChangelogPage() {
               textAlign: 'center',
             }}
           >
-            All versions and updates of this template will be tracked here.
+            Tutte le versioni e gli aggiornamenti del sito saranno tracciati qui.
           </p>
         </div>
       </section>

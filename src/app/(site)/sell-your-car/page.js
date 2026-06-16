@@ -50,7 +50,7 @@ export default function SellYourCarPage() {
           </p>
           
           <nav className="flex items-center justify-center gap-3 text-sm text-neutral-400">
-            <a href="/" className="hover:text-[#FAC104] transition-colors duration-300">Home</a>
+            <a href="/" className="hover:text-[#FAC104] transition-colors duration-300">Casa</a>
             <ChevronRight className="w-3 h-3 text-neutral-600" />
             <span className="text-[#FAC104] font-medium">Vendi la tua Auto</span>
           </nav>

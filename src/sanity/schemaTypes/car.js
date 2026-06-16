@@ -2,35 +2,35 @@
 
 export const carSchema = {
   name: 'car',
-  title: 'Cars',
+  title: 'Automobili',
   type: 'document',
   fields: [
     // ─── Basic Info ───────────────────────────────────────────
     {
       name: 'name',
-      title: 'Car Name',
+      title: 'Nome Auto',
       type: 'string',
-      description: 'e.g. Lamborghini Urus',
+      description: 'es. Lamborghini Urus',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
       title: 'Slug (URL)',
       type: 'slug',
-      description: 'Auto-generated from name — click Generate',
+      description: 'Generato automaticamente dal nome — clicca su Generate',
       options: { source: 'name', maxLength: 96 },
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'price',
-      title: 'Price (EUR)',           // ✅ Change: Price → Price (EUR)
+      title: 'Prezzo (EUR)',
       type: 'string',
-      description: 'e.g. € 1,150,000', // ✅ Change: AED → €
+      description: 'es. € 1.150.000',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'featured',
-      title: 'Show on Home Page (Featured)?',
+      title: 'Mostra in Home Page (In Evidenza)?',
       type: 'boolean',
       initialValue: false,
     },
@@ -38,146 +38,147 @@ export const carSchema = {
     // ─── Brand ────────────────────────────────────────────────
     {
       name: 'brand',
-      title: 'Car Brand / Make',
+      title: 'Marca / Produttore',
       type: 'string',
-      description: 'e.g. Lamborghini',
+      description: 'es. Lamborghini',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'brandLogo',
-      title: 'Brand Logo',
+      title: 'Logo del Brand',
       type: 'image',
-      description: 'Small brand logo shown on card',
+      description: 'Piccolo logo del brand mostrato sulla scheda',
       options: { hotspot: true },
     },
 
     // ─── Images ───────────────────────────────────────────────
     {
       name: 'mainImage',
-      title: 'Main Car Image',
+      title: 'Immagine Principale',
       type: 'image',
-      description: 'Primary image shown on card and detail page',
+      description: 'Immagine primaria mostrata nella scheda e nella pagina dei dettagli',
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'gallery',
-      title: 'Gallery Images (up to 5)',
+      title: 'Galleria Immagini (fino a 5)',
       type: 'array',
       of: [{ type: 'image', options: { hotspot: true } }],
-      description: 'Additional images shown in detail page gallery',
+      description: 'Immagini aggiuntive mostrate nella galleria dei dettagli',
       validation: (Rule) => Rule.max(5),
     },
 
     // ─── Specifications ───────────────────────────────────────
     {
       name: 'year',
-      title: 'Year',
+      title: 'Anno',
       type: 'string',
-      description: 'e.g. 2024',
+      description: 'es. 2024',
     },
     {
       name: 'carType',
-      title: 'Car Type',
+      title: 'Tipo di Auto',
       type: 'string',
       options: {
         list: [
           { title: 'SUV', value: 'SUV' },
           { title: 'Coupe', value: 'Coupe' },
-          { title: 'Convertible', value: 'Convertible' },
-          { title: 'Sedan', value: 'Sedan' },
+          { title: 'Cabriolet', value: 'Convertible' },
+          { title: 'Berlina', value: 'Sedan' },
           { title: 'Hatchback', value: 'Hatchback' },
         ],
       },
     },
     {
       name: 'condition',
-      title: 'Car Condition',
+      title: 'Condizione',
       type: 'string',
       options: {
         list: [
-          { title: 'New', value: 'New' },
-          { title: 'Used', value: 'Used' },
+          { title: 'Nuovo', value: 'New' },
+          { title: 'Usato', value: 'Used' },
         ],
       },
     },
     {
       name: 'fuel',
-      title: 'Fuel Type',
+      title: 'Alimentazione',
       type: 'string',
       options: {
         list: [
-          { title: 'Petrol', value: 'Petrol' },
+          { title: 'Benzina', value: 'Petrol' },
           { title: 'Diesel', value: 'Diesel' },
-          { title: 'Hybrid', value: 'Hybrid' },
-          { title: 'Electric', value: 'Electric' },
+          { title: 'Ibrida', value: 'Hybrid' },
+          { title: 'Elettrica', value: 'Electric' },
+          { title: 'GPL', value: 'LPG' },
         ],
       },
     },
     {
       name: 'transmission',
-      title: 'Transmission',
+      title: 'Cambio',
       type: 'string',
       options: {
         list: [
-          { title: 'Auto', value: 'Auto' },
-          { title: 'Manual', value: 'Manual' },
+          { title: 'Automatico', value: 'Auto' },
+          { title: 'Manuale', value: 'Manual' },
         ],
       },
     },
     {
       name: 'engine',
-      title: 'Engine',
+      title: 'Motore',
       type: 'string',
-      description: 'e.g. 4.0L',
+      description: 'es. 4.0L',
     },
     {
       name: 'mileage',
-      title: 'Mileage (KM)',
+      title: 'Chilometraggio (KM)',
       type: 'string',
-      description: 'e.g. 150',
+      description: 'es. 150',
     },
     {
       name: 'cylinders',
-      title: 'Cylinders',
+      title: 'Cilindri',
       type: 'string',
-      description: 'e.g. 12',
+      description: 'es. 12',
     },
     {
       name: 'horsepower',
-      title: 'Horsepower',
+      title: 'Cavalli',
       type: 'string',
-      description: 'e.g. 641 HP',
+      description: 'es. 641 CV',
     },
     {
       name: 'bodyColor',
-      title: 'Body Color',
+      title: 'Colore Carrozzeria',
       type: 'string',
-      description: 'e.g. Steel Grey',
+      description: 'es. Grigio Acciaio',
     },
     {
       name: 'stockId',
-      title: 'Stock ID',
+      title: 'ID Stock',
       type: 'string',
-      description: 'e.g. ABC1234',
+      description: 'es. ABC1234',
     },
 
     // ─── Overview ─────────────────────────────────────────────
     {
       name: 'overview',
-      title: 'Overview / Description',
+      title: 'Panoramica / Descrizione',
       type: 'text',
       rows: 5,
-      description: 'Paragraph shown in detail page Overview section',
+      description: 'Paragrafo mostrato nella sezione Panoramica (se abilitata)',
     },
 
     // ─── Features ─────────────────────────────────────────────
     {
       name: 'features',
-      title: 'Features',
+      title: 'Caratteristiche',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'e.g. Bluetooth, Built-in GPS, 360° Camera',
+      description: 'es. Bluetooth, GPS Integrato, Telecamera 360°',
       options: {
         layout: 'tags',
       },

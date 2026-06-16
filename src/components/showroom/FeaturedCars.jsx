@@ -30,7 +30,7 @@ function CarCard({ car }) {
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#1e293b] to-[#0f172a] flex items-center justify-center">
-            <span className="text-gray-500 font-medium">No Image Available</span>
+            <span className="text-gray-500 font-medium">Nessuna Immagine Disponibile</span>
           </div>
         )}
         {/* Overlay on hover */}
@@ -58,10 +58,10 @@ function CarCard({ car }) {
         {/* Specs Grid */}
         <div className="grid grid-cols-2 gap-4">
           {[
-            { icon: Gauge, label: 'Mileage', value: car.mileage || '0 KM' },
-            { icon: Zap, label: 'Engine', value: car.engine || 'N/A' },
-            { icon: Fuel, label: 'Fuel', value: car.fuel || 'Petrol' },
-            { icon: Settings, label: 'Transmission', value: car.transmission || 'Auto' },
+            { icon: Gauge, label: 'Chilometraggio', value: car.mileage || '0 KM' },
+            { icon: Zap, label: 'Motore', value: car.engine || 'N/A' },
+            { icon: Fuel, label: 'Carburante', value: car.fuel || 'Petrol' },
+            { icon: Settings, label: 'Trasmissione', value: car.transmission || 'Auto' },
           ].map((spec, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-2xl p-3 border border-white/5">
               <div className="w-8 h-8 rounded-lg bg-[#FAC104]/10 flex items-center justify-center">
@@ -81,7 +81,7 @@ function CarCard({ car }) {
         {/* Footer */}
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-col">
-            <span className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Price</span>
+            <span className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Prezzo</span>
             {/* ✅ AED → € */}
             <span className="text-white text-xl font-extrabold" style={{ fontFamily: 'Syne, sans-serif' }}>
               {car.price?.replace('AED', '€')}
@@ -91,7 +91,7 @@ function CarCard({ car }) {
             href={`/car/${car.slug.current}`} 
             className="flex items-center gap-2 bg-[#FAC104] hover:bg-[#D4A203] text-white px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 group/btn"
           >
-            DETAILS
+            DETTAGLI
             <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -140,10 +140,10 @@ export default async function ShowroomCars({ searchParams }) {
   });
 
   const activeFilters = [
-    make      && `Brand: ${make}`,
-    type      && `Type: ${type}`,
-    condition && `Condition: ${condition}`,
-    query     && `Search: "${query}"`,
+    make      && `Marca: ${make}`,
+    type      && `Tipo: ${type}`,
+    condition && `Condizione: ${condition}`,
+    query     && `Cerca: "${query}"`,
   ].filter(Boolean);
 
   return (
@@ -155,22 +155,22 @@ export default async function ShowroomCars({ searchParams }) {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
               <div className="w-8 h-px bg-[#FAC104]" />
-              Exclusive Inventory
+              Inventario Esclusivo
             </div>
             <h2 className="text-[#0f172a] text-3xl md:text-5xl font-extrabold uppercase" style={{ fontFamily: 'Syne, sans-serif' }}>
-              {activeFilters.length > 0 ? 'Filter Results' : 'Available Collection'}
+              {activeFilters.length > 0 ? 'Risultati Filtro' : 'Collezione Disponibile'}
             </h2>
           </div>
           <div className="flex items-center gap-4 bg-white px-6 py-3 rounded-2xl shadow-sm border border-gray-100">
             <span className="text-[#0f172a] font-bold text-2xl">{filtered.length}</span>
-            <span className="text-gray-400 text-sm font-medium uppercase tracking-widest">Vehicles<br/>Available</span>
+            <span className="text-gray-400 text-sm font-medium uppercase tracking-widest">Veicoli<br/>Disponibili</span>
           </div>
         </div>
 
         {/* Active Filters Bar */}
         {activeFilters.length > 0 && (
           <div className="flex flex-wrap items-center gap-3 mb-10 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
-            <span className="text-gray-400 text-xs font-bold uppercase tracking-widest px-2">Active:</span>
+            <span className="text-gray-400 text-xs font-bold uppercase tracking-widest px-2">Attivo:</span>
             {activeFilters.map((f) => (
               <div key={f} className="flex items-center gap-2 bg-[#0f172a] text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider">
                 {f}
@@ -181,7 +181,7 @@ export default async function ShowroomCars({ searchParams }) {
               className="ml-auto flex items-center gap-2 text-gray-400 hover:text-red-500 text-xs font-bold uppercase tracking-widest transition-colors"
             >
               <FilterX className="w-4 h-4" />
-              Reset All
+              Reset Tutto
             </Link>
           </div>
         )}
@@ -192,15 +192,15 @@ export default async function ShowroomCars({ searchParams }) {
             <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-6">
               <Search className="w-8 h-8 text-gray-300" />
             </div>
-            <h3 className="text-[#0f172a] text-2xl font-bold mb-2">No Matching Vehicles</h3>
+            <h3 className="text-[#0f172a] text-2xl font-bold mb-2">Nessun Veicolo Trovato</h3>
             <p className="text-gray-400 max-w-md mb-8">
-              We couldn&apos;t find any cars matching your current filters. Try adjusting your search or browse our full inventory.
+              Non abbiamo trovato auto corrispondenti ai tuoi filtri attuali. Prova a regolare la ricerca o sfoglia il nostro inventario completo.
             </p>
             <Link 
               href="/showroom" 
               className="bg-[#0f172a] text-white px-8 py-4 rounded-2xl text-sm font-bold hover:bg-[#1e293b] transition-all flex items-center gap-2"
             >
-              VIEW ALL CARS
+              VEDI TUTTE LE AUTO
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

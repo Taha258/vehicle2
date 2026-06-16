@@ -102,7 +102,7 @@ function HeroContent() {
             color: "#fff",
           }}
         >
-          EXPLORE OUR <span className="text-[#FAC104]">SHOWROOM</span>
+          ESPLORA IL NOSTRO <span className="text-[#FAC104]">SHOWROOM</span>
         </h1>
 
         {/* Filter Box */}

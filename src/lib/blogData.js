@@ -3,49 +3,49 @@
 export const blogPosts = [
   {
     id: 1,
-    slug: "hybrid-vs-petrol-choosing-the-right-engine",
-    title: "Hybrid vs. Petrol: Choosing The Right One",
-    category: "Guides",
+    slug: "ibrido-vs-benzina-scegliere-il-motore-giusto",
+    title: "Ibrido vs. Benzina: Scegliere Quello Giusto",
+    category: "Guide",
     readTime: "9 min",
-    date: "Nov 17, 2024",
+    date: "17 Nov 2024",
     image: "/images/Enginee.jpg",
     author: "James Woods",
-    authorRole: "Author",
+    authorRole: "Autore",
     authorImage: "/images/men.jpg",
     content: {
-      intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <span class='text-[#FAC104]'>commodo consequat</span>.",
+      intro: "La scelta tra un motore ibrido e uno a benzina dipende dalle tue abitudini di guida e dalle tue esigenze di risparmio e sostenibilità. In questo articolo esploreremo i pro e i contro di entrambe le tecnologie per aiutarti a fare la scelta migliore per il tuo prossimo <span class='text-[#FAC104]'>acquisto</span>.",
       sections: [
         {
-          title: "What You Can Expect To See",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <span class='text-[#FAC104]'>commodo consequat</span>.",
+          title: "Cosa Aspettarsi",
+          text: "Il mercato automobilistico sta cambiando rapidamente, offrendo soluzioni sempre più efficienti. Sia i motori a benzina di ultima generazione che i sistemi ibridi offrono prestazioni eccellenti con un occhio di riguardo ai consumi.",
           bullets: [
-            "Nisi ut aliquid ex ea commodi consequatur.",
-            "Quis autem vel eum iure reprehenderit qui in ea voluptate.",
-            "Velit esse quam nihil molestiae consequatur.",
-            "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur."
+            "Efficienza nei percorsi urbani per l'ibrido.",
+            "Prestazioni costanti nei lunghi viaggi per il benzina.",
+            "Costi di manutenzione e agevolazioni fiscali.",
+            "Impatto ambientale e restrizioni alla circolazione."
           ]
         },
         {
-          title: "Top Highlights And Features",
-          text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+          title: "Punti Salienti e Caratteristiche",
+          text: "Analizzando i dati tecnici, emergono differenze sostanziali nel modo in cui l'energia viene erogata e recuperata durante la guida.",
           numbered: [
-            "Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
-            "Quisquam est qui dolorem ipsum quia dolor sit ametlores eos qui.",
-            "Ratione voluptatem sequi nesciunt. Neque porro.",
-            "Quisquam est qui dolorem ipsum quia dolor sit amet."
+            "Recupero dell'energia in frenata nei modelli ibridi.",
+            "Semplicità costruttiva dei motori a combustione pura.",
+            "Integrazione di sistemi ADAS di ultima generazione.",
+            "Comfort di marcia e silenziosità in modalità elettrica."
           ]
         },
         {
-          title: "Expert Opinions And Analysis",
-          text: "Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-          quote: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur"
+          title: "Opinioni degli Esperti e Analisi",
+          text: "I nostri esperti hanno analizzato i costi di gestione sul lungo periodo, considerando carburante, assicurazione e svalutazione dell'usato.",
+          quote: "Il passaggio all'ibrido non è solo una scelta ecologica, ma un investimento intelligente per chi vive e lavora in città."
         },
         {
-          title: "Conclusion And Key Takeaways",
-          text: "Duis aute irure dolor in reprehenderit in voluptate velit esse <span class='text-[#FAC104]'>cillum dolore</span> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          title: "Conclusione e Considerazioni Finali",
+          text: "Non esiste una risposta unica valida per tutti. La scelta ideale <span class='text-[#FAC104]'>dipende dal tuo stile di vita</span> e dal chilometraggio annuo previsto.",
           paragraphs: [
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
-            "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."
+            "Ti consigliamo di valutare attentamente dove utilizzerai principalmente l'auto prima di decidere.",
+            "I nostri consulenti sono a disposizione per un'analisi personalizzata delle tue esigenze."
           ]
         }
       ]
@@ -53,23 +53,23 @@ export const blogPosts = [
   },
   {
     id: 2,
-    slug: "find-the-best-car-shows-to-attend-this-year",
-    title: "Find The Best Car Shows To Attend This Year",
-    category: "Events",
+    slug: "i-migliori-saloni-dell-auto-da-visitare-quest-anno",
+    title: "I Migliori Saloni dell'Auto da Visitare Quest'Anno",
+    category: "Eventi",
     readTime: "8 min",
-    date: "Nov 17, 2024",
+    date: "17 Nov 2024",
     image: "/images/Black-car.jpg",
     author: "Sara Blake",
-    authorRole: "Author",
+    authorRole: "Autrice",
     authorImage: "/images/6738c1f7ac831b128ccfcc33_Sara-p-500.jpg",
     content: {
-      intro: "Discover the most exciting car shows happening around the world this year...",
+      intro: "Scopri gli eventi automobilistici più emozionanti in programma in tutto il mondo per quest'anno...",
       sections: [
         {
-          title: "Top Car Shows Around The World",
-          text: "From Geneva to Tokyo, here are the must-visit automotive events...",
+          title: "Top Saloni dell'Auto nel Mondo",
+          text: "Da Ginevra a Tokyo, ecco gli appuntamenti imperdibili per ogni appassionato...",
           bullets: [
-            "Geneva International Motor Show",
+            "Salone Internazionale dell'Automobile di Ginevra",
             "Tokyo Auto Salon",
             "SEMA Show Las Vegas",
             "Goodwood Festival of Speed"
@@ -80,26 +80,26 @@ export const blogPosts = [
   },
   {
     id: 3,
-    slug: "2024-sports-car-reviews-top-models-ranked",
-    title: "2024 Sports Car Reviews: Top Models Ranked",
-    category: "Reviews",
+    slug: "recensioni-auto-sportive-2024-classifica-top-model",
+    title: "Recensioni Auto Sportive 2024: Classifica dei Migliori Modelli",
+    category: "Recensioni",
     readTime: "11 min",
-    date: "Nov 16, 2024",
+    date: "16 Nov 2024",
     image: "/images/Red-car.jpg",
     author: "Tom Hale",
-    authorRole: "Reviewer",
+    authorRole: "Recensore",
     authorImage: "/images/6738c1f8a220b4656b9a38e8_tom.jpg",
     content: {
-      intro: "We tested the best sports cars of 2024 so you don't have to...",
+      intro: "Abbiamo testato le migliori auto sportive del 2024 per offrirti una guida completa...",
       sections: [
         {
-          title: "Performance Testing Results",
-          text: "Our comprehensive track tests reveal surprising results...",
+          title: "Risultati dei Test di Performance",
+          text: "I nostri test approfonditi in pista rivelano risultati sorprendenti...",
           numbered: [
-            "Porsche 911 GT3 - Best Overall",
-            "Ferrari 296 GTB - Best Hybrid",
-            "McLaren Artura - Best Value",
-            "Lamborghini Huracán - Best Sound"
+            "Porsche 911 GT3 - La Migliore in Assoluto",
+            "Ferrari 296 GTB - Miglior Ibrida",
+            "McLaren Artura - Miglior Rapporto Qualità-Prezzo",
+            "Lamborghini Huracán - Miglior Sound"
           ]
         }
       ]
@@ -107,26 +107,26 @@ export const blogPosts = [
   },
   {
     id: 4,
-    slug: "top-tips-for-first-time-luxury-car-buyers",
-    title: "Top Tips For First-Time Luxury Car Buyers",
-    category: "Guides",
+    slug: "consigli-fondamentali-per-chi-acquista-un-auto-di-lusso",
+    title: "Consigli Fondamentali per l'Acquisto di un'Auto di Lusso",
+    category: "Guide",
     readTime: "13 min",
-    date: "Nov 16, 2024",
+    date: "16 Nov 2024",
     image: "/images/BMW.jpg",
     author: "Alex Grant",
-    authorRole: "Expert",
+    authorRole: "Esperto",
     authorImage: "/images/6738c1f8ccc3d328d217bf7c_Alex.jpg",
     content: {
-      intro: "Buying your first luxury car? Here's everything you need to know...",
+      intro: "Stai acquistando la tua prima auto di lusso? Ecco tutto quello che devi sapere...",
       sections: [
         {
-          title: "Essential Buying Tips",
-          text: "Navigate the luxury car market with confidence...",
+          title: "Consigli Essenziali per l'Acquisto",
+          text: "Naviga nel mercato delle auto di lusso con sicurezza e competenza...",
           bullets: [
-            "Set a realistic budget including maintenance",
-            "Research depreciation rates",
-            "Consider certified pre-owned options",
-            "Test drive multiple competitors"
+            "Stabilisci un budget realistico includendo la manutenzione",
+            "Fai ricerche sui tassi di svalutazione",
+            "Considera le opzioni dell'usato certificato",
+            "Prova su strada diversi modelli concorrenti"
           ]
         }
       ]
@@ -134,26 +134,26 @@ export const blogPosts = [
   },
   {
     id: 5,
-    slug: "inside-the-latest-auto-expo-trends-to-watch",
-    title: "Inside The Latest Auto Expo: Trends To Watch",
-    category: "Events",
+    slug: "le-ultime-tendenze-dell-auto-expo-da-tenere-d-occhio",
+    title: "Le Ultime Tendenze dell'Auto Expo da Tenere d'Occhio",
+    category: "Eventi",
     readTime: "12 min",
-    date: "Nov 16, 2024",
+    date: "16 Nov 2024",
     image: "/images/Orange-car.jpg",
     author: "Lisa Chen",
-    authorRole: "Journalist",
+    authorRole: "Giornalista",
     authorImage: "/images/6738c1f70036ea32826789a5_Lisa-p-500.jpg",
     content: {
-      intro: "The latest auto expo revealed some groundbreaking trends...",
+      intro: "L'ultima fiera dell'auto ha rivelato alcune tendenze rivoluzionarie per il futuro...",
       sections: [
         {
-          title: "Key Trends From The Expo",
-          text: "Electric vehicles dominated the show floor this year...",
+          title: "Tendenze Chiave dell'Expo",
+          text: "I veicoli elettrici hanno dominato l'area espositiva quest'anno...",
           bullets: [
-            "Solid-state battery technology",
-            "AI-powered autonomous driving",
-            "Sustainable manufacturing materials",
-            "Vehicle-to-grid integration"
+            "Tecnologia delle batterie allo stato solido",
+            "Guida autonoma alimentata dall'IA",
+            "Materiali di produzione sostenibili",
+            "Integrazione veicolo-rete (V2G)"
           ]
         }
       ]
@@ -169,4 +169,4 @@ export const getRelatedPosts = (currentSlug) => {
 };
 
 // Categories
-export const categories = ["Reviews", "Events", "Guides"];
+export const categories = ["Recensioni", "Eventi", "Guide"];

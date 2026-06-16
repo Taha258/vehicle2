@@ -16,11 +16,11 @@ export default function PasswordPage() {
 
   const handleSubmit = () => {
     if (!password.trim()) {
-      setError('Please enter a password.');
+      setError('Per favore, inserisci una password.');
       return;
     }
     // Add your password logic here
-    setError('Incorrect password. Please try again.');
+    setError('Password errata. Riprova.');
   };
 
   return (
@@ -79,7 +79,7 @@ export default function PasswordPage() {
             margin: 0,
           }}
         >
-          Protected Page
+          Pagina Protetta
         </h1>
 
         {/* Password label + input row */}
@@ -98,7 +98,7 @@ export default function PasswordPage() {
           <div style={{ display: 'flex', gap: '0', width: '100%' }}>
             <input
               type="password"
-              placeholder="Enter your password"
+              placeholder="Inserisci la password"
               value={password}
               onChange={(e) => { setPassword(e.target.value); setError(''); }}
               onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
@@ -131,7 +131,7 @@ export default function PasswordPage() {
                 fontFamily: 'sans-serif',
               }}
             >
-              Submit
+              Invia
             </button>
           </div>
 

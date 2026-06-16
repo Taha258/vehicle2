@@ -24,7 +24,7 @@ export default function AboutFounder() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
                 <div className="w-8 h-px bg-[#FAC104]" />
-                Leadership
+                Direzione
               </div>
               <h2
                 className="text-[#0f172a] text-4xl md:text-6xl font-extrabold uppercase tracking-tight leading-tight"

@@ -31,7 +31,7 @@ function CarCard({ car }) {
           <Image src={car.mainImageUrl} alt={car.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
         ) : (
           <div className="w-full h-full bg-[#1e293b] flex items-center justify-center">
-            <span className="text-gray-500 text-sm">No Image</span>
+            <span className="text-gray-500 text-sm">Nessuna Immagine</span>
           </div>
         )}
       </div>
@@ -40,10 +40,10 @@ function CarCard({ car }) {
       <div className="mx-4 mt-3 bg-[#1e293b] rounded-lg p-3">
         <div className="grid grid-cols-4 gap-2">
           {[
-            { icon: '/images/67222a63d64f86825005a64d_mileage.svg', label: 'Mileage', value: car.mileage },
-            { icon: '/images/67222a63306d244ceda1759e_engine.svg', label: 'Engine', value: car.engine },
-            { icon: '/images/67222a6379b17d04a7c4bd02_fuel-type.svg', label: 'Fuel', value: car.fuel },
-            { icon: '/images/67222a637ccaaffb8230978c_transmission.svg', label: 'Transmission', value: car.transmission },
+            { icon: '/images/67222a63d64f86825005a64d_mileage.svg', label: 'Chilometraggio', value: car.mileage },
+            { icon: '/images/67222a63306d244ceda1759e_engine.svg', label: 'Motore', value: car.engine },
+            { icon: '/images/67222a6379b17d04a7c4bd02_fuel-type.svg', label: 'Carburante', value: car.fuel },
+            { icon: '/images/67222a637ccaaffb8230978c_transmission.svg', label: 'Trasmissione', value: car.transmission },
           ].map((spec) => (
             <div key={spec.label} className="flex flex-col items-center gap-1">
               <Image src={spec.icon} alt={spec.label} width={20} height={20} />
@@ -90,10 +90,10 @@ export default async function FeaturedCars({ searchParams }) {
   });
 
   const activeFilters = [
-    make      && `Make: ${make}`,
-    type      && `Type: ${type}`,
-    condition && `Condition: ${condition}`,
-    query     && `Search: "${query}"`,
+    make      && `Marca: ${make}`,
+    type      && `Tipo: ${type}`,
+    condition && `Condizione: ${condition}`,
+    query     && `Cerca: "${query}"`,
   ].filter(Boolean);
 
   // Sirf 6 cars dikhana front pe
@@ -136,7 +136,7 @@ export default async function FeaturedCars({ searchParams }) {
               </span>
             ))}
             <Link href="/showroom" className="bg-gray-300 text-gray-600 text-xs font-medium px-3 py-1 rounded-full hover:bg-gray-400 transition-colors">
-              ✕ Clear all
+              ✕ Cancella tutto
             </Link>
           </div>
         )}

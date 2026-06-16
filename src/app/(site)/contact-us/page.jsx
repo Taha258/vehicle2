@@ -32,13 +32,13 @@ export default function ContactPage() {
                   className="text-white text-xl font-bold uppercase tracking-wide mb-6"
                   style={{ fontFamily: 'Syne, sans-serif' }}
                 >
-                  GET IN TOUCH
+                  CONTATTACI
                 </h2>
                 <p
                   className="text-gray-400 text-sm leading-relaxed max-w-sm"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                  Hai domande o desideri una valutazione gratuita? Siamo a tua disposizione per offrirti il miglior servizio possibile. Compila il modulo e ti risponderemo al più presto.
                 </p>
               </div>
 
@@ -49,7 +49,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-[#0f172a] text-xs font-medium">Email</p>
-                    <p className="text-[#FAC104] text-sm font-medium">example@email.com</p>
+                    <p className="text-[#FAC104] text-sm font-medium">walcarsit@gmail.com</p>
                   </div>
                 </div>
 
@@ -58,9 +58,8 @@ export default function ContactPage() {
                     <Phone className="w-4 h-4 text-[#FAC104]" />
                   </div>
                   <div>
-                    <p className="text-[#0f172a] text-xs font-medium">Phone</p>
-                    <p className="text-[#FAC104] text-sm font-medium">3282677366</p>
-                    <p className="text-[#FAC104] text-sm font-medium">walcarsit@gmail.com</p>
+                    <p className="text-[#0f172a] text-xs font-medium">Telefono</p>
+                    <p className="text-[#FAC104] text-sm font-medium">+39 328 267 7366</p>
                   </div>
                 </div>
               </div>
@@ -72,11 +71,11 @@ export default function ContactPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[#0f172a] text-xs font-medium mb-1.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      First Name
+                      Nome
                     </label>
                     <input
                       type="text"
-                      placeholder="First Name"
+                      placeholder="Nome"
                       value={formData.firstName}
                       onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                       className="w-full bg-[#c0c0c0] text-[#0f172a] px-3 py-2.5 rounded-lg text-xs outline-none border border-gray-400"
@@ -84,11 +83,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block text-[#0f172a] text-xs font-medium mb-1.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      Last Name
+                      Cognome
                     </label>
                     <input
                       type="text"
-                      placeholder="Last Name"
+                      placeholder="Cognome"
                       value={formData.lastName}
                       onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                       className="w-full bg-[#c0c0c0] text-[#0f172a] px-3 py-2.5 rounded-lg text-xs outline-none border border-gray-400"
@@ -99,11 +98,11 @@ export default function ContactPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[#0f172a] text-xs font-medium mb-1.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      Email Address
+                      Indirizzo Email
                     </label>
                     <input
                       type="email"
-                      placeholder="example@email.com"
+                      placeholder="tua@email.com"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       className="w-full bg-[#c0c0c0] text-[#0f172a] px-3 py-2.5 rounded-lg text-xs outline-none border border-gray-400"
@@ -111,11 +110,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block text-[#0f172a] text-xs font-medium mb-1.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      Phone Number
+                      Numero di Telefono
                     </label>
                     <input
                       type="tel"
-                      placeholder="3282677366"
+                      placeholder="+39 123 456 7890"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="w-full bg-[#c0c0c0] text-[#0f172a] px-3 py-2.5 rounded-lg text-xs outline-none border border-gray-400"
@@ -125,10 +124,10 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-[#0f172a] text-xs font-medium mb-1.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                    Message
+                    Messaggio
                   </label>
                   <textarea
-                    placeholder="Provide details of your enquiry..."
+                    placeholder="Fornisci dettagli sulla tua richiesta..."
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     rows={4}
@@ -140,7 +139,7 @@ export default function ContactPage() {
                   className="bg-[#FAC104] text-white text-xs font-semibold px-6 py-2.5 rounded-lg hover:bg-[#D4A203] transition-colors uppercase tracking-wider"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                 >
-                  SUBMIT
+                  INVIA
                 </button>
               </form>
             </div>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const NAV = ['Images', 'Icons', 'Fonts', 'Brand Logos'];
+const NAV = ['Immagini', 'Icone', 'Font', 'Logo Brand'];
 
 const CirclePlusIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -13,11 +13,17 @@ const CirclePlusIcon = () => (
 );
 
 export default function LicencesPage() {
-  const [active, setActive] = useState('Images');
+  const [active, setActive] = useState('Immagini');
 
-  const scrollTo = (id) => {
-    setActive(id);
-    const el = document.getElementById(id.toLowerCase().replace(' ', '-'));
+  const scrollTo = (item) => {
+    setActive(item);
+    const idMap = {
+      'Immagini': 'images',
+      'Icone': 'icons',
+      'Font': 'fonts',
+      'Logo Brand': 'brand-logos'
+    };
+    const el = document.getElementById(idMap[item]);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -42,18 +48,18 @@ export default function LicencesPage() {
               marginBottom: '14px',
             }}
           >
-            Licences
+            Licenze
           </h1>
           <p
             style={{
               color: 'rgba(255,255,255,0.80)',
               fontSize: '13px',
-              maxWidth: '360px',
+              maxWidth: '450px',
               lineHeight: '1.7',
               textAlign: 'center',
             }}
           >
-            All graphical assets in this template are licensed for personal and commercial use. If you&apos;d like to use a specific asset, please check the license below.
+            Tutte le risorse grafiche in questo template sono concesse in licenza per uso personale e commerciale. Se desideri utilizzare una risorsa specifica, controlla la licenza qui sotto.
           </p>
         </div>
       </section>
@@ -91,19 +97,19 @@ export default function LicencesPage() {
                 justifyContent: 'space-between',
                 padding: '10px 16px',
                 borderRadius: '8px',
-                border: active === item ? '1px solid #ddd' : '1px solid #ddd',
+                border: '1px solid #ddd',
                 cursor: 'pointer',
                 fontSize: '13px',
                 fontWeight: 500,
-                backgroundColor: '#fff',
-                color: '#222',
+                backgroundColor: active === item ? '#FAC104' : '#fff',
+                color: active === item ? '#000' : '#222',
                 transition: 'all 0.15s',
                 textAlign: 'left',
                 boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
               }}
             >
               <span>{item}</span>
-              <span style={{ color: '#555' }}>
+              <span style={{ color: active === item ? '#000' : '#555' }}>
                 <CirclePlusIcon />
               </span>
             </button>
@@ -117,18 +123,18 @@ export default function LicencesPage() {
           <section id="images">
             <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '32px 36px' }}>
               <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '16px', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: '#111', marginBottom: '20px' }}>
-                Images
+                Immagini
               </h2>
               <div style={{ backgroundColor: '#f0f0f0', borderRadius: '8px', padding: '20px 24px' }}>
                 <p style={{ fontSize: '13px', color: '#444', lineHeight: '1.75', marginBottom: '12px' }}>
-                  All images used in the MotorDeal Webflow Template are sourced from{' '}
+                  Tutte le immagini utilizzate nel template WalCars provengono da{' '}
                   <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>Pexels</a>
-                  . They are free for both personal and commercial use. You can find a link to the full license details below.
+                  . Sono gratuite sia per uso personale che commerciale. Puoi trovare un link ai dettagli completi della licenza qui sotto.
                 </p>
                 <ul style={{ paddingLeft: '20px', margin: 0 }}>
                   <li style={{ fontSize: '13px' }}>
                     <a href="https://www.pexels.com/license/" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>
-                      Pexels Licence
+                      Licenza Pexels
                     </a>
                   </li>
                 </ul>
@@ -140,18 +146,18 @@ export default function LicencesPage() {
           <section id="icons">
             <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '32px 36px' }}>
               <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '16px', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: '#111', marginBottom: '20px' }}>
-                Icons
+                Icone
               </h2>
               <div style={{ backgroundColor: '#f0f0f0', borderRadius: '8px', padding: '20px 24px' }}>
                 <p style={{ fontSize: '13px', color: '#444', lineHeight: '1.75', marginBottom: '12px' }}>
-                  All icons used in the MotorDeal Webflow Template are sourced from{' '}
+                  Tutte le icone utilizzate nel template WalCars provengono da{' '}
                   <a href="https://phosphoricons.com" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>Phosphor Icons</a>
-                  . They are free for both personal and commercial use. You can find a link to the full license details below.
+                  . Sono gratuite sia per uso personale che commerciale. Puoi trovare un link ai dettagli completi della licenza qui sotto.
                 </p>
                 <ul style={{ paddingLeft: '20px', margin: 0 }}>
                   <li style={{ fontSize: '13px' }}>
                     <a href="https://github.com/phosphor-icons/core/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>
-                      Phosphor Icons Licence
+                      Licenza Phosphor Icons
                     </a>
                   </li>
                 </ul>
@@ -163,17 +169,17 @@ export default function LicencesPage() {
           <section id="fonts">
             <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '32px 36px' }}>
               <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '16px', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: '#111', marginBottom: '20px' }}>
-                Fonts
+                Font
               </h2>
               <div style={{ backgroundColor: '#f0f0f0', borderRadius: '8px', padding: '20px 24px' }}>
                 <p style={{ fontSize: '13px', color: '#444', lineHeight: '1.75' }}>
-                  The fonts used in the MotorDeal Webflow Template are{' '}
+                  I font utilizzati nel template WalCars sono{' '}
                   <a href="https://fonts.google.com/specimen/Syne" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>Syne</a>
-                  {' '}and{' '}
+                  {' '}e{' '}
                   <a href="https://fonts.google.com/specimen/Space+Grotesk" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>Space Grotesk</a>
-                  . Both are available on{' '}
+                  . Entrambi sono disponibili su{' '}
                   <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" style={{ color: '#FAC104', textDecoration: 'none' }}>Google Fonts</a>
-                  {' '}and are 100% free for personal and commercial use.
+                  {' '}e sono gratuiti al 100% per uso personale e commerciale.
                 </p>
               </div>
             </div>
@@ -183,11 +189,11 @@ export default function LicencesPage() {
           <section id="brand-logos">
             <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '32px 36px' }}>
               <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '16px', fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', color: '#111', marginBottom: '20px' }}>
-                Brand Logos
+                Logo dei Brand
               </h2>
               <div style={{ backgroundColor: '#f0f0f0', borderRadius: '8px', padding: '20px 24px' }}>
                 <p style={{ fontSize: '13px', color: '#444', lineHeight: '1.75' }}>
-                  <strong>Disclaimer:</strong> The Car Brand Logos used in the MotorDeal Webflow Template are used solely as factual representations of the vehicles listed, not to indicate any kind of endorsement or affiliation.
+                  <strong>Disclaimer:</strong> I loghi dei brand automobilistici utilizzati nel template WalCars sono usati esclusivamente come rappresentazioni fattuali dei veicoli elencati, non per indicare alcun tipo di approvazione o affiliazione.
                 </p>
               </div>
             </div>

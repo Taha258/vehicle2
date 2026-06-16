@@ -11,7 +11,7 @@ export default function AboutStory() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
                 <div className="w-8 h-px bg-[#FAC104]" />
-                Origins
+                Origini
               </div>
               <h2
                 className="text-[#0f172a] text-4xl md:text-5xl font-extrabold leading-tight uppercase tracking-tight"
@@ -34,11 +34,11 @@ export default function AboutStory() {
             <div className="grid grid-cols-2 gap-8 pt-6">
               <div>
                 <h4 className="text-[#0f172a] text-2xl font-bold mb-1">2012</h4>
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">Year Founded</p>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">Anno di Fondazione</p>
               </div>
               <div>
-                <h4 className="text-[#0f172a] text-2xl font-bold mb-1">Global</h4>
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">Client Base</p>
+                <h4 className="text-[#0f172a] text-2xl font-bold mb-1">Internazionale</h4>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">Base Clienti</p>
               </div>
             </div>
           </div>

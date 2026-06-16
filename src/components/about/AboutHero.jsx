@@ -13,7 +13,7 @@ export default function AboutHero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl space-y-6">
         <div className="inline-block px-4 py-1.5 bg-[#FAC104]/20 backdrop-blur-md rounded-full border border-[#FAC104]/30 mb-4 animate-pulse">
-          <span className="text-[#FAC104] text-xs font-bold tracking-[0.2em] uppercase">Legacy of Excellence</span>
+          <span className="text-[#FAC104] text-xs font-bold tracking-[0.2em] uppercase">Tradizione di Eccellenza</span>
         </div>
         <h1
           className="uppercase tracking-tight"

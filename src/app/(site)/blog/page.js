@@ -4,8 +4,8 @@ import { blogPosts } from '@/src/lib/blogData';
 import { ArrowUpRight, Clock, User } from 'lucide-react';
 
 export const metadata = {
-  title: 'Blog - MotorDeal',
-  description: 'Latest automotive news, reviews, and guides',
+  title: 'Blog - WalCars',
+  description: 'Ultime notizie, recensioni e guide sul mondo dell\'automobilismo',
 };
 
 export default function BlogPage() {
@@ -31,10 +31,10 @@ export default function BlogPage() {
             className="text-white text-4xl md:text-6xl font-extrabold uppercase tracking-tight leading-tight"
             style={{ fontFamily: 'Syne, sans-serif' }}
           >
-            LATEST <span className="text-[#FAC104]">BLOG</span> POSTS
+            ULTIMI <span className="text-[#FAC104]">ARTICOLI</span> DEL BLOG
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-4 font-medium" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-            Stay updated with the latest automotive news, reviews, and expert guides.
+            Resta aggiornato con le ultime notizie, recensioni e guide esperte del settore automobilistico.
           </p>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default function BlogPage() {
 
                 <div className="pt-8 mt-auto flex items-center justify-between border-t border-gray-50">
                   <span className="text-[#FAC104] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                    Read Post <ArrowUpRight className="w-3 h-3" />
+                    Leggi Articolo <ArrowUpRight className="w-3 h-3" />
                   </span>
                   <span className="text-gray-300 text-[10px] font-bold">{post.date}</span>
                 </div>
