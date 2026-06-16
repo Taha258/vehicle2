@@ -170,21 +170,21 @@ function HeroContent() {
             <div className="flex flex-col lg:flex-row gap-3">
               <div className="flex flex-col md:flex-row gap-3 flex-[2]">
                 <Dropdown
-                  label="Car Make"
+                  label="Marca"
                   options={CAR_MAKES}
                   value={carMake}
                   onChange={setCarMake}
                   icon={Car}
                 />
                 <Dropdown
-                  label="Car Type"
+                  label="Tipo"
                   options={CAR_TYPES}
                   value={carType}
                   onChange={setCarType}
                   icon={Settings}
                 />
                 <Dropdown
-                  label="Condition"
+                  label="Condizione"
                   options={CAR_CONDITIONS}
                   value={carCondition}
                   onChange={setCarCondition}
@@ -198,7 +198,7 @@ function HeroContent() {
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-[#FAC104] transition-colors" />
                   <input
                     type="text"
-                    placeholder="Search model or brand..."
+                    placeholder="Cerca modello o marca..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
@@ -210,7 +210,7 @@ function HeroContent() {
                   className="bg-[#FAC104] text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-[#D4A203] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center justify-center gap-2 uppercase tracking-wider whitespace-nowrap"
                 >
                   <Search className="w-4 h-4" />
-                  <span className="hidden sm:inline">Search</span>
+                  <span className="hidden sm:inline">Cerca</span>
                 </button>
               </div>
             </div>

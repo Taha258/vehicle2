@@ -93,8 +93,14 @@ function HeroContent() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 pt-10">
         <h1
-          className="text-white text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-center mb-8"
-          style={{ fontFamily: 'Syne, sans-serif' }}
+          className="uppercase tracking-tight text-center mb-8"
+          style={{
+            fontFamily: "Syne, sans-serif",
+            fontSize: "clamp(26px, 4.5vw, 48px)",
+            fontWeight: 651,
+            lineHeight: "1.15",
+            color: "#fff",
+          }}
         >
           EXPLORE OUR <span className="text-[#FAC104]">SHOWROOM</span>
         </h1>
@@ -103,9 +109,9 @@ function HeroContent() {
         <div className="w-full max-w-5xl bg-white/5 backdrop-blur-xl rounded-[1.5rem] p-3 md:p-6 border border-white/10 shadow-2xl">
           <div className="flex flex-col lg:flex-row gap-3">
             <div className="flex flex-col md:flex-row gap-3 flex-[2]">
-              <Dropdown label="Car Make" options={CAR_MAKES} value={carMake} onChange={setCarMake} icon={Car} />
-              <Dropdown label="Car Type" options={CAR_TYPES} value={carType} onChange={setCarType} icon={Settings} />
-              <Dropdown label="Condition" options={CAR_CONDITIONS} value={carCondition} onChange={setCarCondition} icon={Fuel} />
+              <Dropdown label="Marca" options={CAR_MAKES} value={carMake} onChange={setCarMake} icon={Car} />
+              <Dropdown label="Tipo" options={CAR_TYPES} value={carType} onChange={setCarType} icon={Settings} />
+              <Dropdown label="Condizione" options={CAR_CONDITIONS} value={carCondition} onChange={setCarCondition} icon={Fuel} />
             </div>
 
             <div className="flex gap-2 flex-[1.2]">
@@ -113,7 +119,7 @@ function HeroContent() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-[#FAC104] transition-colors" />
                 <input
                   type="text"
-                  placeholder="Search model..."
+                  placeholder="Cerca modello..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
@@ -125,7 +131,7 @@ function HeroContent() {
                 className="bg-[#FAC104] text-white px-6 py-3.5 rounded-xl text-sm font-bold hover:bg-[#D4A203] transition-all flex items-center justify-center gap-2 uppercase tracking-wider"
               >
                 <Search className="w-4 h-4" />
-                <span className="hidden sm:inline">Search</span>
+                <span className="hidden sm:inline">Cerca</span>
               </button>
             </div>
           </div>

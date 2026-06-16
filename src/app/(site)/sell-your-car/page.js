@@ -33,8 +33,17 @@ export default function SellYourCarPage() {
         </div>
 
         <div className="relative z-10 text-center px-5 max-w-3xl mx-auto">
-          <h1 className="font-oswald text-5xl md:text-7xl font-bold text-white uppercase tracking-wide mb-4 leading-tight">
-            Vendi la tua <span className="text-[#FAC104]">Auto</span>
+          <h1
+            className="uppercase tracking-tight mb-4"
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "clamp(26px, 4.5vw, 48px)",
+              fontWeight: 651,
+              lineHeight: "1.15",
+              color: "#fff",
+            }}
+          >
+            Vendi la tua <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">Auto</span>
           </h1>
           <p className="text-lg text-neutral-300 mb-8 font-light">
             Ottieni il miglior valore per il tuo veicolo con il nostro sistema di valutazione istantanea

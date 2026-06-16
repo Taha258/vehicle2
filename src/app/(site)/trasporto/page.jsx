@@ -178,8 +178,14 @@ export default function TrasportoPage() {
             <span className="text-[#FAC104] text-xs font-bold tracking-[0.2em] uppercase">Logistica di lusso</span>
           </div>
           <h1
-            className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-tight leading-tight"
-            style={{ fontFamily: 'Syne, sans-serif' }}
+            className="uppercase tracking-tight leading-tight"
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "clamp(26px, 4.5vw, 48px)",
+              fontWeight: 651,
+              lineHeight: "1.15",
+              color: "#fff",
+            }}
           >
             TRASPORTO <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAC104] to-[#FBDB5C]">E CONSEGNA</span>
