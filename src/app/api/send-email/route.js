@@ -10,85 +10,108 @@ export async function POST(request) {
     const { 
       make, model, year, mileage, fuel_type, transmission, location,
       name, email, telephone, message,
-      car_photos 
+      price, car_type, car_condition, body_color,
+      engine, cylinders, horsepower, stock_id,
+      overview, features,
+      main_car_image, gallery_images
     } = body;
 
-    // ✅ Base64 images ko attachments mein convert karein
     const attachments = [];
-    if (car_photos && car_photos.length > 0) {
-      car_photos.forEach((photo, index) => {
+    
+    if (main_car_image) {
+      const matches = main_car_image.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
+      if (matches && matches.length === 3) {
+        const mimeType = matches[1];
+        const base64Data = matches[2];
+        const ext = mimeType.split('/')[1] || 'jpg';
+        attachments.push({ filename: `main-car-image.${ext}`, content: base64Data });
+      }
+    }
+
+    if (gallery_images && gallery_images.length > 0) {
+      gallery_images.forEach((photo, index) => {
         const matches = photo.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
         if (matches && matches.length === 3) {
           const mimeType = matches[1];
           const base64Data = matches[2];
           const ext = mimeType.split('/')[1] || 'jpg';
-          
-          attachments.push({
-            filename: `car-photo-${index + 1}.${ext}`,
-            content: base64Data,
-          });
+          attachments.push({ filename: `gallery-photo-${index + 1}.${ext}`, content: base64Data });
         }
       });
     }
 
+    const featuresString = features && features.length > 0 
+      ? features.join(', ') 
+      : 'Nessuna caratteristica specificata';
+
     const emailContent = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="background: #FAC104; padding: 20px; border-radius: 12px 12px 0 0; text-align: center;">
-          <h1 style="color: #000; margin: 0; font-size: 24px;">🚗 New Car Sale Inquiry</h1>
+      <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
+        <div style="background: #FAC104; padding: 25px; border-radius: 12px 12px 0 0; text-align: center;">
+          <h1 style="color: #000; margin: 0; font-size: 26px;">🚗 Nuova Richiesta Vendita Auto</h1>
+          <p style="color: #333; margin: 8px 0 0 0; font-size: 14px;">Inviata da ${name} - ${new Date().toLocaleString('it-IT')}</p>
         </div>
         
         <div style="background: #fff; padding: 30px; border: 1px solid #eee; border-radius: 0 0 12px 12px;">
           
-          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">
-            Vehicle Information
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px; margin-top: 0;">
+            🚘 Informazioni Veicolo
           </h2>
-          <table style="width: 100%; margin-bottom: 25px; border-collapse: collapse;">
-            <tr><td style="padding: 8px; background: #f9f9f9; width: 40%;"><strong>Make</strong></td><td style="padding: 8px;">${make}</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Model</strong></td><td style="padding: 8px;">${model}</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Year</strong></td><td style="padding: 8px;">${year}</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Mileage</strong></td><td style="padding: 8px;">${mileage} km</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Fuel Type</strong></td><td style="padding: 8px;">${fuel_type}</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Transmission</strong></td><td style="padding: 8px;">${transmission}</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Location</strong></td><td style="padding: 8px;">${location || 'Not provided'}</td></tr>
+          <table style="width: 100%; margin-bottom: 25px; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 10px; background: #f9f9f9; width: 35%; border: 1px solid #eee;"><strong>Marca</strong></td><td style="padding: 10px; border: 1px solid #eee;">${make}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Modello</strong></td><td style="padding: 10px; border: 1px solid #eee;">${model}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Prezzo Richiesto</strong></td><td style="padding: 10px; border: 1px solid #eee; font-weight: bold; color: #FAC104;">€ ${Number(price).toLocaleString('it-IT')}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Anno</strong></td><td style="padding: 10px; border: 1px solid #eee;">${year}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Tipo</strong></td><td style="padding: 10px; border: 1px solid #eee;">${car_type}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Condizione</strong></td><td style="padding: 10px; border: 1px solid #eee;">${car_condition}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Carburante</strong></td><td style="padding: 10px; border: 1px solid #eee;">${fuel_type}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Trasmissione</strong></td><td style="padding: 10px; border: 1px solid #eee;">${transmission}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Chilometraggio</strong></td><td style="padding: 10px; border: 1px solid #eee;">${Number(mileage).toLocaleString('it-IT')} km</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Colore</strong></td><td style="padding: 10px; border: 1px solid #eee;">${body_color}</td></tr>
           </table>
           
-          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">
-            Seller Information
-          </h2>
-          <table style="width: 100%; margin-bottom: 25px; border-collapse: collapse;">
-            <tr><td style="padding: 8px; background: #f9f9f9; width: 40%;"><strong>Name</strong></td><td style="padding: 8px;">${name}</td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Email</strong></td><td style="padding: 8px;"><a href="mailto:${email}">${email}</a></td></tr>
-            <tr><td style="padding: 8px; background: #f9f9f9;"><strong>Telephone</strong></td><td style="padding: 8px;">${telephone}</td></tr>
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">⚙️ Dettagli Tecnici (Opzionali)</h2>
+          <table style="width: 100%; margin-bottom: 25px; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 10px; background: #f9f9f9; width: 35%; border: 1px solid #eee;"><strong>Motore</strong></td><td style="padding: 10px; border: 1px solid #eee;">${engine || 'Non specificato'}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Cilindri</strong></td><td style="padding: 10px; border: 1px solid #eee;">${cylinders || 'Non specificato'}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Cavalli (HP)</strong></td><td style="padding: 10px; border: 1px solid #eee;">${horsepower || 'Non specificato'}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Stock ID</strong></td><td style="padding: 10px; border: 1px solid #eee;">${stock_id || 'Non specificato'}</td></tr>
           </table>
           
-          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">
-            Additional Message
-          </h2>
-          <p style="background: #f5f5f5; padding: 15px; border-radius: 8px; line-height: 1.6;">
-            ${message || 'No additional message'}
-          </p>
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">🏷️ Caratteristiche / Optional</h2>
+          <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 25px;"><p style="margin: 0; line-height: 1.6;">${featuresString}</p></div>
           
-          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px; margin-top: 25px;">
-            Car Photos (${car_photos?.length || 0})
-          </h2>
-          <p style="color: #666; font-size: 14px;">
-            📎 ${car_photos?.length || 0} photo(s) attached to this email.
-          </p>
-          <p style="color: #999; font-size: 12px; margin-top: 10px;">
-            Please download the attached files to view the car photos.
-          </p>
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">📝 Descrizione dell'Auto</h2>
+          <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 25px;"><p style="margin: 0; line-height: 1.6; white-space: pre-wrap;">${overview || 'Nessuna descrizione fornita'}</p></div>
           
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #999; font-size: 12px;">
-            Sent from WalCars Sell Form
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">👤 Informazioni Venditore</h2>
+          <table style="width: 100%; margin-bottom: 25px; border-collapse: collapse; font-size: 14px;">
+            <tr><td style="padding: 10px; background: #f9f9f9; width: 35%; border: 1px solid #eee;"><strong>Nome</strong></td><td style="padding: 10px; border: 1px solid #eee;">${name}</td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Email</strong></td><td style="padding: 10px; border: 1px solid #eee;"><a href="mailto:${email}" style="color: #FAC104;">${email}</a></td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Telefono</strong></td><td style="padding: 10px; border: 1px solid #eee;"><a href="tel:${telephone}" style="color: #FAC104;">${telephone}</a></td></tr>
+            <tr><td style="padding: 10px; background: #f9f9f9; border: 1px solid #eee;"><strong>Posizione</strong></td><td style="padding: 10px; border: 1px solid #eee;">${location || 'Non specificata'}</td></tr>
+          </table>
+          
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">💬 Messaggio Aggiuntivo</h2>
+          <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 25px;"><p style="margin: 0; line-height: 1.6; white-space: pre-wrap;">${message || 'Nessun messaggio aggiuntivo'}</p></div>
+          
+          <h2 style="color: #FAC104; border-bottom: 2px solid #FAC104; padding-bottom: 8px; font-size: 18px;">📷 Foto dell'Auto</h2>
+          <div style="background: #fffbeb; padding: 15px; border-radius: 8px; border: 1px solid #FAC104; margin-bottom: 25px;">
+            <p style="margin: 0; font-size: 14px;">
+              <strong>Immagine Principale:</strong> ${main_car_image ? '✅ Caricata (vedi allegato)' : '❌ Non caricata'}<br>
+              <strong>Galleria:</strong> ${gallery_images?.length || 0} foto(s) ${gallery_images?.length > 0 ? '(vedi allegati)' : ''}
+            </p>
+            <p style="margin: 10px 0 0 0; color: #666; font-size: 13px;">📎 ${attachments.length} file(s) allegato/i a questa email.</p>
           </div>
+          
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #999; font-size: 12px;">Inviato dal modulo Vendi la tua Auto | WalCars</div>
         </div>
       </div>
     `;
 
     const emailOptions = {
       from: 'WalCars <onboarding@resend.dev>',
-      to: ['walcarsit@gmail.com'],  // ✅ Updated email address
-      subject: `🚗 New Car Sale Inquiry - ${make} ${model} (${year})`,
+      to: ['tahahussain427@gmail.com'],  // ✅ TESTING EMAIL
+      subject: `🚗 Nuova Richiesta - ${make} ${model} (${year}) - €${Number(price).toLocaleString('it-IT')}`,
       html: emailContent,
       reply_to: email,
     };

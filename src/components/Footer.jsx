@@ -117,11 +117,11 @@ export default function Footer() {
             
             {/* Copyright */}
             <p className="text-gray-500 text-xs font-medium uppercase tracking-widest" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Copyright © 2025 WalCars
+              Copyright © 2026 WalCars
             </p>
 
             <p className="text-gray-500 text-xs font-medium uppercase tracking-widest" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Powered by <span className="text-[#FAC104]">AxisTechGroup</span>
+              Sito Creato da: <span className="text-[#FAC104]">Abbad Ahmed Khan</span>
             </p>
           </div>
         </div>

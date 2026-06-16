@@ -23,9 +23,9 @@ export const carSchema = {
     },
     {
       name: 'price',
-      title: 'Price',
+      title: 'Price (EUR)',           // ✅ Change: Price → Price (EUR)
       type: 'string',
-      description: 'e.g. AED 1,150,000',
+      description: 'e.g. € 1,150,000', // ✅ Change: AED → €
       validation: (Rule) => Rule.required(),
     },
     {
