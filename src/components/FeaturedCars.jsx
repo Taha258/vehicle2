@@ -53,9 +53,11 @@ function CarCard({ car }) {
         </div>
       </div>
 
-      {/* Price */}
+      {/* Price — ✅ AED → € */}
       <div className="px-4 pt-3 pb-2">
-        <span className="text-white text-lg font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>{car.price}</span>
+        <span className="text-white text-lg font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>
+          {car.price?.replace('AED', '€')}
+        </span>
       </div>
 
       {/* Button — Italian */}

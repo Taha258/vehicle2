@@ -1,3 +1,4 @@
+// src/components/showroom/FeaturedCars.jsx
 import Link from 'next/link';
 import Image from 'next/image';
 import { clientFetch } from '@/src/sanity/lib/client';
@@ -81,8 +82,9 @@ function CarCard({ car }) {
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-col">
             <span className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Price</span>
+            {/* ✅ AED → € */}
             <span className="text-white text-xl font-extrabold" style={{ fontFamily: 'Syne, sans-serif' }}>
-              {car.price}
+              {car.price?.replace('AED', '€')}
             </span>
           </div>
           <Link 
