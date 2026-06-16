@@ -130,50 +130,50 @@ export default function SellCarForm() {
       <div className="mb-8">
         <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Car className="w-5 h-5 text-[#FAC104]" />
-          Vehicle Information
+          Informazioni sul Veicolo
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Make *</label>
-            <input name="make" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="e.g. Toyota" />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Marca *</label>
+            <input name="make" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="es. Toyota" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Model *</label>
-            <input name="model" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="e.g. Corolla" />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Modello *</label>
+            <input name="model" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="es. Corolla" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Year *</label>
-            <input name="year" type="number" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="e.g. 2020" />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Anno *</label>
+            <input name="year" type="number" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="es. 2020" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Mileage (km) *</label>
-            <input name="mileage" type="number" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="e.g. 50000" />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Chilometraggio (km) *</label>
+            <input name="mileage" type="number" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="es. 50000" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Fuel Type *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Tipo di Carburante *</label>
             <select name="fuel_type" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none">
-              <option value="">Select fuel type</option>
-              <option value="Petrol">Petrol</option>
+              <option value="">Seleziona tipo carburante</option>
+              <option value="Petrol">Benzina</option>
               <option value="Diesel">Diesel</option>
-              <option value="Hybrid">Hybrid</option>
-              <option value="Electric">Electric</option>
-              <option value="LPG">LPG</option>
+              <option value="Hybrid">Ibrida</option>
+              <option value="Electric">Elettrica</option>
+              <option value="LPG">GPL</option>
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Transmission *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Trasmissione *</label>
             <select name="transmission" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none">
-              <option value="">Select transmission</option>
-              <option value="Manual">Manual</option>
-              <option value="Automatic">Automatic</option>
-              <option value="Semi-Automatic">Semi-Automatic</option>
+              <option value="">Seleziona trasmissione</option>
+              <option value="Manual">Manuale</option>
+              <option value="Automatic">Automatica</option>
+              <option value="Semi-Automatic">Semiautomatica</option>
             </select>
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
-              <MapPin className="w-4 h-4" /> Location
+              <MapPin className="w-4 h-4" /> Posizione
             </label>
-            <input name="location" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="e.g. Milano, Italy" />
+            <input name="location" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="es. Milano, Italia" />
           </div>
         </div>
       </div>
@@ -182,19 +182,19 @@ export default function SellCarForm() {
       <div className="mb-8">
         <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
           <User className="w-5 h-5 text-[#FAC104]" />
-          Seller Information
+          Informazioni del Venditore
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-            <input name="name" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="Your full name" />
+            <label className="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+            <input name="name" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="Il tuo nome completo" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-            <input name="email" type="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="your@email.com" />
+            <input name="email" type="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="tua@email.com" />
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Telephone *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Telefono *</label>
             <input name="telephone" type="tel" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none" placeholder="+39 123 456 7890" />
           </div>
         </div>
@@ -204,13 +204,13 @@ export default function SellCarForm() {
       <div className="mb-8">
         <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
           <MessageSquare className="w-5 h-5 text-[#FAC104]" />
-          Additional Message
+          Messaggio Aggiuntivo
         </h2>
         <textarea 
           name="message" 
           rows="4" 
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FAC104] focus:border-transparent outline-none resize-none"
-          placeholder="Tell us more about your car (condition, features, price expectation...)"
+          placeholder="Raccontaci di più sulla tua auto (condizioni, optional, aspettativa di prezzo...)"
         ></textarea>
       </div>
 
@@ -218,7 +218,7 @@ export default function SellCarForm() {
       <div className="mb-8">
         <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Camera className="w-5 h-5 text-[#FAC104]" />
-          Car Photos
+          Foto dell&apos;Auto
         </h2>
         
         <div 

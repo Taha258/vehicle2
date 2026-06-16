@@ -1,4 +1,4 @@
-// src/app/trasporto/page.jsx
+// src/app/(site)/trasporto/page.jsx
 'use client';
 
 import { useState, useRef } from 'react';
@@ -198,7 +198,7 @@ export default function TrasportoPage() {
               className="text-2xl md:text-3xl font-bold text-white uppercase text-center mb-8"
               style={{ fontFamily: 'Syne, sans-serif' }}
             >
-              TRANSPORT <span className="text-[#FAC104]">REQUEST FORM</span>
+              MODULO DI <span className="text-[#FAC104]">RICHIESTA TRASPORTO</span>
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-8">
@@ -206,12 +206,12 @@ export default function TrasportoPage() {
               <div className="space-y-4">
                 <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2 flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  Personal Information
+                  Informazioni Personali
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
-                      Full Name <span className="text-red-500">*</span>
+                      Nome Completo <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -220,12 +220,12 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="Enter your full name"
+                      placeholder="Inserisci il tuo nome completo"
                     />
                   </div>
                   <div>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
-                      Phone Number <span className="text-red-500">*</span>
+                      Numero di Telefono <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -239,7 +239,7 @@ export default function TrasportoPage() {
                   </div>
                   <div>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
-                      Email Address
+                      Indirizzo Email
                     </label>
                     <input
                       type="email"
@@ -247,7 +247,7 @@ export default function TrasportoPage() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="your@email.com"
+                      placeholder="tua@email.com"
                     />
                   </div>
                 </div>
@@ -257,18 +257,24 @@ export default function TrasportoPage() {
               <div className="space-y-4">
                 <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2 flex items-center gap-2">
                   <Truck className="w-4 h-4" />
-                  Vehicle Information
+                  Informazioni sul Veicolo
                 </h3>
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-3">
-                    Vehicle Type <span className="text-red-500">*</span>
+                    Tipo di Veicolo <span className="text-red-500">*</span>
                   </label>
                   <div className="flex flex-wrap gap-3">
-                    {['Car', 'Van', 'Camper', 'Motorcycle', 'Other'].map((type) => (
+                    {[
+                      { label: 'Auto', value: 'Car' },
+                      { label: 'Furgone', value: 'Van' },
+                      { label: 'Camper', value: 'Camper' },
+                      { label: 'Moto', value: 'Motorcycle' },
+                      { label: 'Altro', value: 'Other' }
+                    ].map((type) => (
                       <label
-                        key={type}
+                        key={type.value}
                         className={`cursor-pointer px-5 py-2.5 rounded-xl border text-sm font-medium transition-all ${
-                          formData.vehicleType === type
+                          formData.vehicleType === type.value
                             ? 'bg-[#FAC104] text-[#0f172a] border-[#FAC104]'
                             : 'bg-white/10 text-gray-300 border-white/20 hover:border-[#FAC104]/50'
                         }`}
@@ -276,27 +282,32 @@ export default function TrasportoPage() {
                         <input
                           type="radio"
                           name="vehicleType"
-                          value={type}
-                          checked={formData.vehicleType === type}
+                          value={type.value}
+                          checked={formData.vehicleType === type.value}
                           onChange={handleChange}
                           required
                           className="hidden"
                         />
-                        {type}
+                        {type.label}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-3">
-                    Vehicle Condition <span className="text-red-500">*</span>
+                    Condizioni del Veicolo <span className="text-red-500">*</span>
                   </label>
                   <div className="flex flex-wrap gap-3">
-                    {['Running', 'Not Running', 'Damaged', 'Accident Vehicle'].map((condition) => (
+                    {[
+                      { label: 'Marciante', value: 'Running' },
+                      { label: 'Non Marciante', value: 'Not Running' },
+                      { label: 'Danneggiato', value: 'Damaged' },
+                      { label: 'Veicolo Incidentato', value: 'Accident Vehicle' }
+                    ].map((condition) => (
                       <label
-                        key={condition}
+                        key={condition.value}
                         className={`cursor-pointer px-5 py-2.5 rounded-xl border text-sm font-medium transition-all ${
-                          formData.vehicleCondition === condition
+                          formData.vehicleCondition === condition.value
                             ? 'bg-[#FAC104] text-[#0f172a] border-[#FAC104]'
                             : 'bg-white/10 text-gray-300 border-white/20 hover:border-[#FAC104]/50'
                         }`}
@@ -304,13 +315,13 @@ export default function TrasportoPage() {
                         <input
                           type="radio"
                           name="vehicleCondition"
-                          value={condition}
-                          checked={formData.vehicleCondition === condition}
+                          value={condition.value}
+                          checked={formData.vehicleCondition === condition.value}
                           onChange={handleChange}
                           required
                           className="hidden"
                         />
-                        {condition}
+                        {condition.label}
                       </label>
                     ))}
                   </div>
@@ -321,13 +332,13 @@ export default function TrasportoPage() {
               <div className="space-y-4">
                 <h3 className="text-[#FAC104] text-sm font-bold uppercase tracking-wider border-b border-white/10 pb-2 flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  Transport Details
+                  Dettagli del Trasporto
                 </h3>
                 
                 {/* Pickup Location */}
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                   <label className="block text-gray-300 text-sm font-medium mb-3">
-                    Pickup Location <span className="text-red-500">*</span>
+                    Luogo di Ritiro <span className="text-red-500">*</span>
                   </label>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <input
@@ -337,7 +348,7 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="City"
+                      placeholder="Città"
                     />
                     <input
                       type="text"
@@ -346,7 +357,7 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="Province"
+                      placeholder="Provincia"
                     />
                     <input
                       type="text"
@@ -355,7 +366,7 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="Postal Code"
+                      placeholder="CAP"
                     />
                   </div>
                 </div>
@@ -363,7 +374,7 @@ export default function TrasportoPage() {
                 {/* Delivery Location */}
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                   <label className="block text-gray-300 text-sm font-medium mb-3">
-                    Delivery Location <span className="text-red-500">*</span>
+                    Luogo di Consegna <span className="text-red-500">*</span>
                   </label>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <input
@@ -373,7 +384,7 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="City"
+                      placeholder="Città"
                     />
                     <input
                       type="text"
@@ -382,7 +393,7 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="Province"
+                      placeholder="Provincia"
                     />
                     <input
                       type="text"
@@ -391,7 +402,7 @@ export default function TrasportoPage() {
                       onChange={handleChange}
                       required
                       className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors"
-                      placeholder="Postal Code"
+                      placeholder="CAP"
                     />
                   </div>
                 </div>
@@ -399,7 +410,7 @@ export default function TrasportoPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
-                      Preferred Transport Date
+                      Data di Trasporto Preferita
                     </label>
                     <input
                       type="date"
@@ -414,16 +425,16 @@ export default function TrasportoPage() {
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-2 flex items-center gap-2">
                     <MessageSquare className="w-4 h-4" />
-                    Additional Notes
+                    Note Aggiuntive
                   </label>
-                  <p className="text-gray-500 text-xs mb-2">(Access restrictions, urgency, special requirements, etc.)</p>
+                  <p className="text-gray-500 text-xs mb-2">(Restrizioni di accesso, urgenza, requisiti speciali, ecc.)</p>
                   <textarea
                     name="notes"
                     value={formData.notes}
                     onChange={handleChange}
                     rows={4}
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FAC104] transition-colors resize-none"
-                    placeholder="Enter any additional information..."
+                    placeholder="Inserisci eventuali informazioni aggiuntive..."
                   />
                 </div>
 
@@ -431,7 +442,7 @@ export default function TrasportoPage() {
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-3 flex items-center gap-2">
                     <Camera className="w-4 h-4" />
-                    Upload Photos of the Vehicle <span className="text-gray-500">(optional)</span>
+                    Carica Foto del Veicolo <span className="text-gray-500">(opzionale)</span>
                   </label>
                   <div 
                     onDragOver={handleDragOver}
@@ -449,10 +460,10 @@ export default function TrasportoPage() {
                     />
                     <div className="flex flex-col items-center justify-center py-10 px-4">
                       <CloudUpload className="w-10 h-10 text-gray-500 mb-3" />
-                      <p className="text-gray-400 text-sm font-medium">Click to upload or drag and drop</p>
-                      <p className="text-gray-600 text-xs mt-1">Max 8 photos, 5MB each</p>
+                      <p className="text-gray-400 text-sm font-medium">Clicca per caricare o trascina qui</p>
+                      <p className="text-gray-600 text-xs mt-1">Max 8 foto, 5MB ciascuna</p>
                       {files.length > 0 && (
-                        <p className="text-[#FAC104] text-xs mt-2 font-medium">{files.length} file(s) selected</p>
+                        <p className="text-[#FAC104] text-xs mt-2 font-medium">{files.length} file selezionati</p>
                       )}
                     </div>
                   </div>
@@ -464,7 +475,7 @@ export default function TrasportoPage() {
                         <div key={index} className="relative group">
                           <img 
                             src={preview} 
-                            alt={`Preview ${index + 1}`}
+                            alt={`Anteprima ${index + 1}`}
                             className="w-full h-28 object-cover rounded-lg border border-white/20"
                           />
                           <button
@@ -500,7 +511,7 @@ export default function TrasportoPage() {
                   ) : (
                     <>
                       <Send className="w-5 h-5 relative z-10" />
-                      <span className="relative z-10">Request a Quote</span>
+                      <span className="relative z-10">Richiedi un Preventivo</span>
                     </>
                   )}
                 </button>
@@ -516,7 +527,7 @@ export default function TrasportoPage() {
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-white/10 order-2 md:order-1">
             <Image
               src="/images/67210d3c6c5dda52abf0e1de_lamborghini-urus-p-1600.jpg"
-              alt="Transport Service"
+              alt="Servizio di Trasporto"
               fill
               className="object-cover"
             />

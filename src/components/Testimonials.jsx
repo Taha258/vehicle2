@@ -9,34 +9,34 @@ const testimonials = [
   {
     id: 1,
     name: 'Alex Grant',
-    role: 'Business Mogul',
+    role: 'Imprenditore',
     image: '/images/6738c1f8a220b4656b9a38e8_tom.jpg',
     rating: 5,
-    text: 'MotorDeal redefined my expectations. The acquisition of my Huracán was seamless, professional, and truly white-glove.',
+    text: 'MotorDeal ha ridefinito le mie aspettative. L\'acquisto della mia Huracán è stato fluido, professionale e veramente di alto livello.',
   },
   {
     id: 2,
     name: 'Sara Blake',
-    role: 'Art Collector',
+    role: 'Collezionista d\'Arte',
     image: '/images/6738c1f7ac831b128ccfcc33_Sara-p-500.jpg',
     rating: 5,
-    text: 'Searching for a specific vintage model was a challenge until I met the MotorDeal team. Their sourcing capabilities are unmatched.',
+    text: 'Cercare uno specifico modello d\'epoca è stata una sfida finché non ho incontrato il team di MotorDeal. Le loro capacità di ricerca non hanno eguali.',
   },
   {
     id: 3,
     name: 'Jack Lee',
-    role: 'Tech Founder',
+    role: 'Fondatore Tech',
     image: '/images/6738c1f8ccc3d328d217bf7c_Alex.jpg',
     rating: 5,
-    text: 'Efficiency meets luxury. I appreciate the transparent pricing and the speed at which they finalized the paperwork for my Urus.',
+    text: 'L\'efficienza incontra il lusso. Apprezzo la trasparenza dei prezzi e la velocità con cui hanno finalizzato le pratiche per la mia Urus.',
   },
   {
     id: 4,
     name: 'Lisa Chen',
-    role: 'Design Director',
+    role: 'Direttore del Design',
     image: '/images/6738c1f70036ea32826789a5_Lisa-p-500.jpg',
     rating: 5,
-    text: 'The aesthetic of the showroom is only surpassed by the quality of their fleet. A truly premium experience from start to finish.',
+    text: 'L\'estetica dello showroom è superata solo dalla qualità del loro parco auto. Un\'esperienza veramente premium dall\'inizio alla fine.',
   },
 ];
 
@@ -66,7 +66,7 @@ export default function Testimonials() {
             {/* Small Label */}
             <div className="flex items-center gap-2 text-[#FAC104] font-bold text-xs uppercase tracking-[0.2em]">
               <div className="w-8 h-px bg-[#FAC104]" />
-              Testimonials
+              Recensioni
             </div>
             
             {/* Main Heading */}

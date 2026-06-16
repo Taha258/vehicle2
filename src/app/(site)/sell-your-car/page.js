@@ -11,8 +11,8 @@ import {
 import SellCarForm from './SellCarForm';
 
 export const metadata = {
-  title: 'Sell Your Car | Auto Multi Marche',
-  description: 'Get the best value for your vehicle with our instant appraisal system',
+  title: 'Vendi la tua Auto | Auto Multi Marche',
+  description: 'Ottieni il miglior valore per il tuo veicolo con il nostro sistema di valutazione istantanea',
 };
 
 export default function SellYourCarPage() {
@@ -23,7 +23,7 @@ export default function SellYourCarPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/selling-car-hero-bg.jpg"
-            alt="Sell your car"
+            alt="Vendi la tua auto"
             fill
             className="object-cover"
             priority
@@ -34,16 +34,16 @@ export default function SellYourCarPage() {
 
         <div className="relative z-10 text-center px-5 max-w-3xl mx-auto">
           <h1 className="font-oswald text-5xl md:text-7xl font-bold text-white uppercase tracking-wide mb-4 leading-tight">
-            Sell Your <span className="text-[#FAC104]">Car</span>
+            Vendi la tua <span className="text-[#FAC104]">Auto</span>
           </h1>
           <p className="text-lg text-neutral-300 mb-8 font-light">
-            Get the best value for your vehicle with our instant appraisal system
+            Ottieni il miglior valore per il tuo veicolo con il nostro sistema di valutazione istantanea
           </p>
           
           <nav className="flex items-center justify-center gap-3 text-sm text-neutral-400">
             <a href="/" className="hover:text-[#FAC104] transition-colors duration-300">Home</a>
             <ChevronRight className="w-3 h-3 text-neutral-600" />
-            <span className="text-[#FAC104] font-medium">Sell Your Car</span>
+            <span className="text-[#FAC104] font-medium">Vendi la tua Auto</span>
           </nav>
         </div>
       </section>
@@ -54,10 +54,10 @@ export default function SellYourCarPage() {
           
           <div className="text-center mb-12">
             <h2 className="font-oswald text-3xl md:text-4xl font-bold text-neutral-900 uppercase tracking-wide mb-3">
-              Get Your <span className="text-[#FAC104]">Instant Offer</span>
+              Ricevi la tua <span className="text-[#FAC104]">Offerta Istantanea</span>
             </h2>
             <p className="text-neutral-500">
-              Fill in your car details and we&apos;ll provide you with a competitive appraisal!
+              Inserisci i dettagli della tua auto e ti forniremo una valutazione competitiva!
             </p>
           </div>
 
@@ -70,17 +70,17 @@ export default function SellYourCarPage() {
         <div className="max-w-[1100px] mx-auto px-5">
           <div className="text-center mb-12">
             <h2 className="font-oswald text-3xl font-bold text-neutral-900 uppercase mb-3">
-              Why Sell With <span className="text-[#FAC104]">Us</span>
+              Perché Vendere a <span className="text-[#FAC104]">Noi</span>
             </h2>
-            <p className="text-neutral-500">Trusted by thousands of car sellers across Italy</p>
+            <p className="text-neutral-500">Scelto da migliaia di venditori di auto in tutta Italia</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Zap, title: 'Instant Offer', desc: 'Get a competitive appraisal within minutes of submitting your details' },
-              { icon: Handshake, title: 'Fair Pricing', desc: 'We ensure transparent and market-competitive pricing for every vehicle' },
-              { icon: Shield, title: 'Secure Process', desc: 'Your data and vehicle information are protected with top-tier security' },
-              { icon: HeadphonesIcon, title: '24/7 Support', desc: 'Our dedicated team is available around the clock to assist you' },
+              { icon: Zap, title: 'Offerta Istantanea', desc: 'Ottieni una valutazione competitiva in pochi minuti dopo aver inviato i tuoi dati' },
+              { icon: Handshake, title: 'Prezzi Equi', desc: 'Garantiamo prezzi trasparenti e competitivi sul mercato per ogni veicolo' },
+              { icon: Shield, title: 'Processo Sicuro', desc: 'I tuoi dati e le informazioni del veicolo sono protetti con i massimi standard di sicurezza' },
+              { icon: HeadphonesIcon, title: 'Supporto 24/7', desc: 'Il nostro team dedicato è disponibile 24 ore su 24 per assisterti' },
             ].map((item, index) => (
               <div 
                 key={index}
@@ -99,37 +99,6 @@ export default function SellYourCarPage() {
         </div>
       </section>
 
-      {/* ==================== NEWSLETTER ==================== */}
-      <section className="bg-neutral-950 py-16 relative overflow-hidden">
-        <div className="absolute -top-1/2 -right-[10%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(250,193,4,0.08)_0%,transparent_70%)]" />
-        
-        <div className="max-w-[1100px] mx-auto px-5 flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
-          <div className="text-center lg:text-left">
-            <h3 className="font-oswald text-2xl md:text-3xl text-white uppercase tracking-wide mb-2">
-              Subscribe to Our Newsletter
-            </h3>
-            <p className="text-neutral-400 text-sm">
-              Get the latest vehicle arrivals, price drops, and exclusive automotive deals directly in your inbox.
-            </p>
-          </div>
-
-          <form className="flex w-full lg:w-auto lg:min-w-[450px] max-w-[500px]">
-            <input 
-              type="email" 
-              placeholder="Enter your email address..."
-              required
-              className="flex-1 px-6 py-4 border-[1.5px] border-neutral-700 rounded-l-full bg-neutral-900 text-white text-sm placeholder:text-neutral-500 focus:border-[#FAC104] outline-none transition-colors"
-            />
-            <button 
-              type="submit"
-              className="px-7 py-4 bg-[#FAC104] text-black font-oswald font-semibold text-sm uppercase tracking-wider rounded-r-full flex items-center gap-2 hover:bg-[#e0ac00] transition-colors whitespace-nowrap"
-            >
-              <Send className="w-3.5 h-3.5" />
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </section>
     </main>
   );
 }

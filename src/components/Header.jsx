@@ -63,7 +63,7 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <Link
-            href="/showroom"
+            href="/sell-your-car"
             className="hidden md:inline-flex bg-[#FAC104] text-white text-[10px] font-bold tracking-widest px-4 py-2.5 rounded-lg hover:bg-[#D4A203] transition-colors whitespace-nowrap"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
@@ -96,7 +96,7 @@ export default function Header() {
               ))}
 
               <Link
-                href="/showroom"
+                href="/sell-your-car"
                 onClick={() => setMobileMenuOpen(false)}
                 className="bg-[#FAC104] text-white text-sm font-bold tracking-widest px-5 py-2.5 rounded-lg text-center mt-2"
               >
