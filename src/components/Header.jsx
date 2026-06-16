@@ -31,7 +31,7 @@ export default function Header() {
   });
 
   return (
-    <header className="absolute top-4 left-0 right-0 z-50 px-4">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
       <div className="bg-[#0f172a] border-2 border-white/20 rounded-2xl mx-auto px-6 py-3 max-w-6xl">
         <div className="flex items-center justify-between">
 

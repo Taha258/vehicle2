@@ -142,7 +142,7 @@ function HeroContent() {
               className="group relative px-6 py-3.5 bg-[#FAC104] text-[#0f172a] rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-[#FBDB5C] active:scale-95 transition-all duration-300 shadow-lg shadow-[#FAC104]/25 flex items-center gap-2 overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              <span className="relative z-10">VENDI LA TUA AUTO</span>
+              <span className="relative z-10">VENDI LA TUA AUTOOOOO</span>
               <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </Link>
 
