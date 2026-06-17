@@ -12,8 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: 'WalCars - MotorDeal Showroom',
-  description: 'Best car deals',
+  title: 'WalCars - Showroom MotorDeal',
+  description: 'Le migliori offerte auto',
   icons: {
     icon: '/images/WalCars---Logo-Design---FF--Favicon.png',
     shortcut: '/images/WalCars---Logo-Design---FF--Favicon.png',
